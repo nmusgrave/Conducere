@@ -18,3 +18,5 @@ To run it from the command line, make sure you're in the `src` folder, and type:
 ```
 python run.py <my_model> [arguments..]
 ```
+
+And that's it! You should now be able to run your model with any number of arguments.
