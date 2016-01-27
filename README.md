@@ -1,4 +1,4 @@
-# Conducere: An Applicaiton of Music Learning
+# Conducere: An Application of Music Learning
 
 ## Use
 
