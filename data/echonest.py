@@ -27,9 +27,11 @@ def get_playlist_track_analysis(playlist_tracks):
   """
   set_api_key()
   analysis = []
-  for tid in playlist_tracks:
-    analysis.append(track.track_from_id(tid))
+  for i in range(len(playlist_tracks)):
+    analysis.append(track.track_from_id(playlist_tracks[i]))
     time.sleep(3) # limited to 20 access/s
+    if i % 20 == 0 and i > 0:
+      print "Completed %d tracks" % i
   return analysis
 
 def set_api_key():
