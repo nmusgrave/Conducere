@@ -6,7 +6,8 @@
 
 import time
 import os
-from pyechonest import config, artist, song, track
+from pyechonest import config, artist, song, track, util
+from util import contains_all_attributes, ATTRIBUTES
 
 # ==========================================
 # TODO: Make sure the following variables is set
@@ -28,7 +29,17 @@ def get_playlist_track_analysis(playlist_tracks):
   set_api_key()
   analysis = []
   for i in range(len(playlist_tracks)):
-    analysis.append(track.track_from_id(playlist_tracks[i]))
+    next_track = track.track_from_id(playlist_tracks[i])
+
+    try:
+      if not contains_all_attributes(next_track):
+        # Try to get analysis, if missing attributes
+        next_track = next_track.get_analysis()
+      analysis.append(next_track)
+    except Exception:
+      print "Error processing track: %s" % next_track
+      pass 
+
     time.sleep(3) # limited to 20 access/s
     if i % 20 == 0 and i > 0:
       print "Completed %d tracks" % i
