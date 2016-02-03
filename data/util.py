@@ -7,6 +7,16 @@
 
 # List of relevant attributes
 # TODO: Add new attributes for analysis to this set
+#
+#   attribute        value space
+#   -------------    ------------
+#   danceability     (0.0 - 1.0)
+#   energy           (0.0 - 1.0)
+#   liveness         (0.0 - 1.0)
+#   loudness         (dB)
+#   speechiness      (0.0 - 1.0)
+#   tempo            (BPM)
+#
 ATTRIBUTES = { \
     'danceability', \
     'energy', \
