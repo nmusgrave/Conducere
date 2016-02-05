@@ -46,7 +46,7 @@ if __name__ == '__main__':
 
     print "Analyzed tracks with Echonest"
     
-    f = open('echonest_' + username + '.txt', 'w')
+    f = open('data/echonest_' + username + '.txt', 'w')
     for a in analysis:
       print >> f, vars(a)
     f.close()

@@ -16,6 +16,9 @@
 #   loudness         (dB)
 #   speechiness      (0.0 - 1.0)
 #   tempo            (BPM)
+#   valence          (0.0 - 1.0)
+#   instrumentalness (0.0 - 1.0)
+#   acousticness     (0.0 - 1.0)
 #
 ATTRIBUTES = { \
     'danceability', \
@@ -23,7 +26,10 @@ ATTRIBUTES = { \
     'liveness', \
     'loudness', \
     'speechiness', \
-    'tempo'}
+    'tempo', \
+    'valence', \
+    'instrumentalness', \
+    'acousticness'}
 
 # Checks if the given analyzed track contains all 
 # featured attributes
