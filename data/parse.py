@@ -74,4 +74,4 @@ def get_parsed_data():
     user_id = data_file[9:-4] # strip file prefix/suffix to get username/id
     parse_echonest_data_file(data_file, user_id)
 
-
+get_parsed_data()
