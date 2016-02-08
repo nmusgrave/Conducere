@@ -20,7 +20,7 @@
 #   instrumentalness (0.0 - 1.0)
 #   acousticness     (0.0 - 1.0)
 #
-ATTRIBUTES = { \
+ATTRIBUTES = [ \
     'danceability', \
     'energy', \
     'liveness', \
@@ -29,7 +29,7 @@ ATTRIBUTES = { \
     'tempo', \
     'valence', \
     'instrumentalness', \
-    'acousticness'}
+    'acousticness']
 
 # Checks if the given analyzed track contains all 
 # featured attributes

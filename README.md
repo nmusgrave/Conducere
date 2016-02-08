@@ -36,3 +36,11 @@ And execute
 ```
 python data/collect.py <username> <playlist name> ...
 ```
+
+To then parse the collected echonest data, execute
+
+```
+python parse.py
+```
+
+which prints comma-separated data to standard out (redirect to filepath, if desired)
