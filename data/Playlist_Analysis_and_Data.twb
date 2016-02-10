@@ -1,0 +1,418 @@
+<?xml version='1.0' encoding='utf-8' ?>
+
+<!-- build 9200.16.0204.1543                                -->
+<workbook source-platform='win' version='9.2' xmlns:user='http://www.tableausoftware.com/xml/user'>
+  <preferences>
+    <preference name='ui.encoding.shelf.height' value='24' />
+    <preference name='ui.shelf.height' value='26' />
+  </preferences>
+  <datasources>
+    <datasource caption='echonest_connor' inline='true' name='textscan.1sho29k1hq9tru1ggb51c01j644n' version='9.2'>
+      <connection class='textscan' directory='C:/Users/Svetlana/Documents/neuralnetworksstyle-master-2673c05e1458482cf6725cfdac4d0c45afcca3b9/data' filename='echonest_connor.txt' password='' server='' username=''>
+        <relation name='echonest_connor#txt' table='[echonest_connor#txt]' type='table'>
+          <columns character-set='UTF-8' header='yes' locale='en_US' separator='='>
+            <column datatype='string' name='{u&apos;status&apos;: u&apos;complete&apos;, u&apos;liveness&apos;: 0.11341793790669664, u&apos;tempo&apos;: 112.055, u&apos;energy&apos;: 0.8003762485664534, &apos;analysis_url&apos;: u&apos;' ordinal='0' />
+            <column datatype='string' name='AKIAJRDFEY23UEVW42BQ&amp;Expires' ordinal='1' />
+            <column datatype='string' name='1454460678&amp;Signature' ordinal='2' />
+            <column datatype='string' name='SRDSQApPy7aa3fB3BYu/gzjFVYA%3D&apos;, u&apos;speechiness&apos;: 0.05723364924285507, u&apos;foreign_release_ids&apos;: (u&apos;spotify-CA:album:3myPwaMYjdwht' ordinal='3' />
+          </columns>
+        </relation>
+        <metadata-records>
+          <metadata-record class='column'>
+            <remote-name>{u&apos;status&apos;: u&apos;complete&apos;, u&apos;liveness&apos;: 0.11341793790669664, u&apos;tempo&apos;: 112.055, u&apos;energy&apos;: 0.8003762485664534, &apos;analysis_url&apos;: u&apos;</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[{u&apos;status&apos;: u&apos;complete&apos;, u&apos;liveness&apos;: 0.11341793790669664, u&apos;tempo&apos;: 112.055, u&apos;energy&apos;: 0.8003762485664534, &apos;analysis_url&apos;: u&apos;]</local-name>
+            <parent-name>[echonest_connor#txt]</parent-name>
+            <remote-alias>{u&apos;status&apos;: u&apos;complete&apos;, u&apos;liveness&apos;: 0.11341793790669664, u&apos;tempo&apos;: 112.055, u&apos;energy&apos;: 0.8003762485664534, &apos;analysis_url&apos;: u&apos;</remote-alias>
+            <ordinal>0</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RUS' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteCollation'>&quot;en_US&quot;</attribute>
+              <attribute datatype='string' name='DebugRemoteMetadata (compression)'>&quot;heap&quot;</attribute>
+              <attribute datatype='integer' name='DebugRemoteMetadata (size)'>4294967292</attribute>
+              <attribute datatype='integer' name='DebugRemoteMetadata (storagewidth)'>8</attribute>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;str&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>AKIAJRDFEY23UEVW42BQ&amp;Expires</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[AKIAJRDFEY23UEVW42BQ&amp;Expires]</local-name>
+            <parent-name>[echonest_connor#txt]</parent-name>
+            <remote-alias>AKIAJRDFEY23UEVW42BQ&amp;Expires</remote-alias>
+            <ordinal>1</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RUS' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteCollation'>&quot;en_US&quot;</attribute>
+              <attribute datatype='string' name='DebugRemoteMetadata (compression)'>&quot;heap&quot;</attribute>
+              <attribute datatype='integer' name='DebugRemoteMetadata (size)'>4294967292</attribute>
+              <attribute datatype='integer' name='DebugRemoteMetadata (storagewidth)'>8</attribute>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;str&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>1454460678&amp;Signature</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[1454460678&amp;Signature]</local-name>
+            <parent-name>[echonest_connor#txt]</parent-name>
+            <remote-alias>1454460678&amp;Signature</remote-alias>
+            <ordinal>2</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RUS' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteCollation'>&quot;en_US&quot;</attribute>
+              <attribute datatype='string' name='DebugRemoteMetadata (compression)'>&quot;heap&quot;</attribute>
+              <attribute datatype='integer' name='DebugRemoteMetadata (size)'>4294967292</attribute>
+              <attribute datatype='integer' name='DebugRemoteMetadata (storagewidth)'>8</attribute>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;str&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>SRDSQApPy7aa3fB3BYu/gzjFVYA%3D&apos;, u&apos;speechiness&apos;: 0.05723364924285507, u&apos;foreign_release_ids&apos;: (u&apos;spotify-CA:album:3myPwaMYjdwht</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[SRDSQApPy7aa3fB3BYu/gzjFVYA%3D&apos;, u&apos;speechiness&apos;: 0.05723364924285507, u&apos;foreign_release_ids&apos;: (u&apos;spotify-CA:album:3myPwaMYjdwht]</local-name>
+            <parent-name>[echonest_connor#txt]</parent-name>
+            <remote-alias>SRDSQApPy7aa3fB3BYu/gzjFVYA%3D&apos;, u&apos;speechiness&apos;: 0.05723364924285507, u&apos;foreign_release_ids&apos;: (u&apos;spotify-CA:album:3myPwaMYjdwht</remote-alias>
+            <ordinal>3</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RUS' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteCollation'>&quot;en_US&quot;</attribute>
+              <attribute datatype='string' name='DebugRemoteMetadata (compression)'>&quot;heap&quot;</attribute>
+              <attribute datatype='integer' name='DebugRemoteMetadata (size)'>4294967292</attribute>
+              <attribute datatype='integer' name='DebugRemoteMetadata (storagewidth)'>8</attribute>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;str&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='capability'>
+            <remote-name />
+            <remote-type>0</remote-type>
+            <parent-name>[echonest_connor#txt]</parent-name>
+            <remote-alias />
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='character-set'>&quot;UTF-8&quot;</attribute>
+              <attribute datatype='string' name='collation'>&quot;en_US&quot;</attribute>
+              <attribute datatype='string' name='field-delimiter'>&quot;=&quot;</attribute>
+              <attribute datatype='string' name='header-row'>&quot;true&quot;</attribute>
+              <attribute datatype='string' name='locale'>&quot;en_US&quot;</attribute>
+              <attribute datatype='string' name='single-char'>&quot;&quot;</attribute>
+            </attributes>
+          </metadata-record>
+        </metadata-records>
+      </connection>
+      <aliases enabled='yes' />
+      <column aggregation='Sum' caption='Song ID' datatype='integer' name='[1454460678&amp;Signature - Split 1]' role='dimension' type='ordinal' user:SplitFieldIndex='20' user:SplitFieldOrigin='[textscan.1sho29k1hq9tru1ggb51c01j644n].[1454460678&amp;Signature]'>
+        <calculation class='tableau' formula='INT( SPLIT( [1454460678&amp;Signature], &quot;&amp;&quot;, 1 ) )' />
+      </column>
+      <column caption='Song ID and sig' datatype='string' hidden='true' name='[1454460678&amp;Signature]' role='dimension' type='nominal' />
+      <column datatype='string' hidden='true' name='[AKIAJRDFEY23UEVW42BQ&amp;Expires]' role='dimension' type='nominal' />
+      <column datatype='integer' name='[Number of Records]' role='measure' type='quantitative' user:auto-column='numrec'>
+        <calculation class='tableau' formula='1' />
+      </column>
+      <column caption='SRDSQApPy7aa3fB3BYu/gzjFVYA%3D&apos;, u&apos;speechiness&apos;: 0.05723364924285507, u&apos;foreign release ids&apos;: (u&apos;spotify-CA:album:3myPwaMYjdwht - Split 10' datatype='string' hidden='true' name='[SRDSQApPy7aa3fB3BYu/gzjFVYA%3D&apos;, u&apos;speechiness&apos;: 0.05723364924285507, u&apos;foreign_release_ids&apos;: (u&apos;spotify-CA:album:3myPwaMYjdwht - Split 10]' role='dimension' type='nominal' user:SplitFieldIndex='10' user:SplitFieldOrigin='[textscan.1sho29k1hq9tru1ggb51c01j644n].[SRDSQApPy7aa3fB3BYu/gzjFVYA%3D&apos;, u&apos;speechiness&apos;: 0.05723364924285507, u&apos;foreign_release_ids&apos;: (u&apos;spotify-CA:album:3myPwaMYjdwht]'>
+        <calculation class='tableau' formula='TRIM( SPLIT( [SRDSQApPy7aa3fB3BYu/gzjFVYA%3D&apos;, u&apos;speechiness&apos;: 0.05723364924285507, u&apos;foreign_release_ids&apos;: (u&apos;spotify-CA:album:3myPwaMYjdwht], &quot;,&quot;, 10 ) )' />
+      </column>
+      <column caption='SRDSQApPy7aa3fB3BYu/gzjFVYA%3D&apos;, u&apos;speechiness&apos;: 0.05723364924285507, u&apos;foreign release ids&apos;: (u&apos;spotify-CA:album:3myPwaMYjdwht - Split 1' datatype='string' hidden='true' name='[SRDSQApPy7aa3fB3BYu/gzjFVYA%3D&apos;, u&apos;speechiness&apos;: 0.05723364924285507, u&apos;foreign_release_ids&apos;: (u&apos;spotify-CA:album:3myPwaMYjdwht - Split 1]' role='dimension' type='nominal' user:SplitFieldIndex='1' user:SplitFieldOrigin='[textscan.1sho29k1hq9tru1ggb51c01j644n].[SRDSQApPy7aa3fB3BYu/gzjFVYA%3D&apos;, u&apos;speechiness&apos;: 0.05723364924285507, u&apos;foreign_release_ids&apos;: (u&apos;spotify-CA:album:3myPwaMYjdwht]'>
+        <calculation class='tableau' formula='TRIM( SPLIT( [SRDSQApPy7aa3fB3BYu/gzjFVYA%3D&apos;, u&apos;speechiness&apos;: 0.05723364924285507, u&apos;foreign_release_ids&apos;: (u&apos;spotify-CA:album:3myPwaMYjdwht], &quot;,&quot;, 1 ) )' />
+      </column>
+      <column aggregation='CountD' caption='Speechiness' datatype='real' name='[SRDSQApPy7aa3fB3BYu/gzjFVYA%3D&apos;, u&apos;speechiness&apos;: 0.05723364924285507, u&apos;foreign_release_ids&apos;: (u&apos;spotify-CA:album:3myPwaMYjdwht - Split 2 - Split 1]' role='measure' type='quantitative' user:SplitFieldIndex='16' user:SplitFieldOrigin='[textscan.1sho29k1hq9tru1ggb51c01j644n].[SRDSQApPy7aa3fB3BYu/gzjFVYA%3D&apos;, u&apos;speechiness&apos;: 0.05723364924285507, u&apos;foreign_release_ids&apos;: (u&apos;spotify-CA:album:3myPwaMYjdwht - Split 2]'>
+        <calculation class='tableau' formula='FLOAT(TRIM( SPLIT( SPLIT( SPLIT( [SRDSQApPy7aa3fB3BYu/gzjFVYA%3D&apos;, u&apos;speechiness&apos;: 0.05723364924285507, u&apos;foreign_release_ids&apos;: (u&apos;spotify-CA:album:3myPwaMYjdwht - Split 2], &quot;u&quot;, 2 ), &quot;&apos;&quot;, 3 ), &quot;:&quot;, 2 ) ))' />
+      </column>
+      <column caption='fafdafd' datatype='string' hidden='true' name='[SRDSQApPy7aa3fB3BYu/gzjFVYA%3D&apos;, u&apos;speechiness&apos;: 0.05723364924285507, u&apos;foreign_release_ids&apos;: (u&apos;spotify-CA:album:3myPwaMYjdwht - Split 2]' role='dimension' type='nominal' user:SplitFieldIndex='2' user:SplitFieldOrigin='[textscan.1sho29k1hq9tru1ggb51c01j644n].[SRDSQApPy7aa3fB3BYu/gzjFVYA%3D&apos;, u&apos;speechiness&apos;: 0.05723364924285507, u&apos;foreign_release_ids&apos;: (u&apos;spotify-CA:album:3myPwaMYjdwht]'>
+        <calculation class='tableau' formula='TRIM( SPLIT( [SRDSQApPy7aa3fB3BYu/gzjFVYA%3D&apos;, u&apos;speechiness&apos;: 0.05723364924285507, u&apos;foreign_release_ids&apos;: (u&apos;spotify-CA:album:3myPwaMYjdwht], &quot;,&quot;, 2 ) )' />
+      </column>
+      <column caption='SRDSQApPy7aa3fB3BYu/gzjFVYA%3D&apos;, u&apos;speechiness&apos;: 0.05723364924285507, u&apos;foreign release ids&apos;: (u&apos;spotify-CA:album:3myPwaMYjdwht - Split 3' datatype='string' hidden='true' name='[SRDSQApPy7aa3fB3BYu/gzjFVYA%3D&apos;, u&apos;speechiness&apos;: 0.05723364924285507, u&apos;foreign_release_ids&apos;: (u&apos;spotify-CA:album:3myPwaMYjdwht - Split 3]' role='dimension' type='nominal' user:SplitFieldIndex='3' user:SplitFieldOrigin='[textscan.1sho29k1hq9tru1ggb51c01j644n].[SRDSQApPy7aa3fB3BYu/gzjFVYA%3D&apos;, u&apos;speechiness&apos;: 0.05723364924285507, u&apos;foreign_release_ids&apos;: (u&apos;spotify-CA:album:3myPwaMYjdwht]'>
+        <calculation class='tableau' formula='TRIM( SPLIT( [SRDSQApPy7aa3fB3BYu/gzjFVYA%3D&apos;, u&apos;speechiness&apos;: 0.05723364924285507, u&apos;foreign_release_ids&apos;: (u&apos;spotify-CA:album:3myPwaMYjdwht], &quot;,&quot;, 3 ) )' />
+      </column>
+      <column caption='SRDSQApPy7aa3fB3BYu/gzjFVYA%3D&apos;, u&apos;speechiness&apos;: 0.05723364924285507, u&apos;foreign release ids&apos;: (u&apos;spotify-CA:album:3myPwaMYjdwht - Split 4' datatype='string' hidden='true' name='[SRDSQApPy7aa3fB3BYu/gzjFVYA%3D&apos;, u&apos;speechiness&apos;: 0.05723364924285507, u&apos;foreign_release_ids&apos;: (u&apos;spotify-CA:album:3myPwaMYjdwht - Split 4]' role='dimension' type='nominal' user:SplitFieldIndex='4' user:SplitFieldOrigin='[textscan.1sho29k1hq9tru1ggb51c01j644n].[SRDSQApPy7aa3fB3BYu/gzjFVYA%3D&apos;, u&apos;speechiness&apos;: 0.05723364924285507, u&apos;foreign_release_ids&apos;: (u&apos;spotify-CA:album:3myPwaMYjdwht]'>
+        <calculation class='tableau' formula='TRIM( SPLIT( [SRDSQApPy7aa3fB3BYu/gzjFVYA%3D&apos;, u&apos;speechiness&apos;: 0.05723364924285507, u&apos;foreign_release_ids&apos;: (u&apos;spotify-CA:album:3myPwaMYjdwht], &quot;,&quot;, 4 ) )' />
+      </column>
+      <column caption='SRDSQApPy7aa3fB3BYu/gzjFVYA%3D&apos;, u&apos;speechiness&apos;: 0.05723364924285507, u&apos;foreign release ids&apos;: (u&apos;spotify-CA:album:3myPwaMYjdwht - Split 5' datatype='string' hidden='true' name='[SRDSQApPy7aa3fB3BYu/gzjFVYA%3D&apos;, u&apos;speechiness&apos;: 0.05723364924285507, u&apos;foreign_release_ids&apos;: (u&apos;spotify-CA:album:3myPwaMYjdwht - Split 5]' role='dimension' type='nominal' user:SplitFieldIndex='5' user:SplitFieldOrigin='[textscan.1sho29k1hq9tru1ggb51c01j644n].[SRDSQApPy7aa3fB3BYu/gzjFVYA%3D&apos;, u&apos;speechiness&apos;: 0.05723364924285507, u&apos;foreign_release_ids&apos;: (u&apos;spotify-CA:album:3myPwaMYjdwht]'>
+        <calculation class='tableau' formula='TRIM( SPLIT( [SRDSQApPy7aa3fB3BYu/gzjFVYA%3D&apos;, u&apos;speechiness&apos;: 0.05723364924285507, u&apos;foreign_release_ids&apos;: (u&apos;spotify-CA:album:3myPwaMYjdwht], &quot;,&quot;, 5 ) )' />
+      </column>
+      <column caption='SRDSQApPy7aa3fB3BYu/gzjFVYA%3D&apos;, u&apos;speechiness&apos;: 0.05723364924285507, u&apos;foreign release ids&apos;: (u&apos;spotify-CA:album:3myPwaMYjdwht - Split 6' datatype='string' hidden='true' name='[SRDSQApPy7aa3fB3BYu/gzjFVYA%3D&apos;, u&apos;speechiness&apos;: 0.05723364924285507, u&apos;foreign_release_ids&apos;: (u&apos;spotify-CA:album:3myPwaMYjdwht - Split 6]' role='dimension' type='nominal' user:SplitFieldIndex='6' user:SplitFieldOrigin='[textscan.1sho29k1hq9tru1ggb51c01j644n].[SRDSQApPy7aa3fB3BYu/gzjFVYA%3D&apos;, u&apos;speechiness&apos;: 0.05723364924285507, u&apos;foreign_release_ids&apos;: (u&apos;spotify-CA:album:3myPwaMYjdwht]'>
+        <calculation class='tableau' formula='TRIM( SPLIT( [SRDSQApPy7aa3fB3BYu/gzjFVYA%3D&apos;, u&apos;speechiness&apos;: 0.05723364924285507, u&apos;foreign_release_ids&apos;: (u&apos;spotify-CA:album:3myPwaMYjdwht], &quot;,&quot;, 6 ) )' />
+      </column>
+      <column caption='SRDSQApPy7aa3fB3BYu/gzjFVYA%3D&apos;, u&apos;speechiness&apos;: 0.05723364924285507, u&apos;foreign release ids&apos;: (u&apos;spotify-CA:album:3myPwaMYjdwht - Split 7' datatype='string' hidden='true' name='[SRDSQApPy7aa3fB3BYu/gzjFVYA%3D&apos;, u&apos;speechiness&apos;: 0.05723364924285507, u&apos;foreign_release_ids&apos;: (u&apos;spotify-CA:album:3myPwaMYjdwht - Split 7]' role='dimension' type='nominal' user:SplitFieldIndex='7' user:SplitFieldOrigin='[textscan.1sho29k1hq9tru1ggb51c01j644n].[SRDSQApPy7aa3fB3BYu/gzjFVYA%3D&apos;, u&apos;speechiness&apos;: 0.05723364924285507, u&apos;foreign_release_ids&apos;: (u&apos;spotify-CA:album:3myPwaMYjdwht]'>
+        <calculation class='tableau' formula='TRIM( SPLIT( [SRDSQApPy7aa3fB3BYu/gzjFVYA%3D&apos;, u&apos;speechiness&apos;: 0.05723364924285507, u&apos;foreign_release_ids&apos;: (u&apos;spotify-CA:album:3myPwaMYjdwht], &quot;,&quot;, 7 ) )' />
+      </column>
+      <column caption='SRDSQApPy7aa3fB3BYu/gzjFVYA%3D&apos;, u&apos;speechiness&apos;: 0.05723364924285507, u&apos;foreign release ids&apos;: (u&apos;spotify-CA:album:3myPwaMYjdwht - Split 8' datatype='string' hidden='true' name='[SRDSQApPy7aa3fB3BYu/gzjFVYA%3D&apos;, u&apos;speechiness&apos;: 0.05723364924285507, u&apos;foreign_release_ids&apos;: (u&apos;spotify-CA:album:3myPwaMYjdwht - Split 8]' role='dimension' type='nominal' user:SplitFieldIndex='8' user:SplitFieldOrigin='[textscan.1sho29k1hq9tru1ggb51c01j644n].[SRDSQApPy7aa3fB3BYu/gzjFVYA%3D&apos;, u&apos;speechiness&apos;: 0.05723364924285507, u&apos;foreign_release_ids&apos;: (u&apos;spotify-CA:album:3myPwaMYjdwht]'>
+        <calculation class='tableau' formula='TRIM( SPLIT( [SRDSQApPy7aa3fB3BYu/gzjFVYA%3D&apos;, u&apos;speechiness&apos;: 0.05723364924285507, u&apos;foreign_release_ids&apos;: (u&apos;spotify-CA:album:3myPwaMYjdwht], &quot;,&quot;, 8 ) )' />
+      </column>
+      <column caption='SRDSQApPy7aa3fB3BYu/gzjFVYA%3D&apos;, u&apos;speechiness&apos;: 0.05723364924285507, u&apos;foreign release ids&apos;: (u&apos;spotify-CA:album:3myPwaMYjdwht - Split 9' datatype='string' hidden='true' name='[SRDSQApPy7aa3fB3BYu/gzjFVYA%3D&apos;, u&apos;speechiness&apos;: 0.05723364924285507, u&apos;foreign_release_ids&apos;: (u&apos;spotify-CA:album:3myPwaMYjdwht - Split 9]' role='dimension' type='nominal' user:SplitFieldIndex='9' user:SplitFieldOrigin='[textscan.1sho29k1hq9tru1ggb51c01j644n].[SRDSQApPy7aa3fB3BYu/gzjFVYA%3D&apos;, u&apos;speechiness&apos;: 0.05723364924285507, u&apos;foreign_release_ids&apos;: (u&apos;spotify-CA:album:3myPwaMYjdwht]'>
+        <calculation class='tableau' formula='TRIM( SPLIT( [SRDSQApPy7aa3fB3BYu/gzjFVYA%3D&apos;, u&apos;speechiness&apos;: 0.05723364924285507, u&apos;foreign_release_ids&apos;: (u&apos;spotify-CA:album:3myPwaMYjdwht], &quot;,&quot;, 9 ) )' />
+      </column>
+      <column caption='SRDSQApPy7aa3fB3BYu/gzjFVYA%3D&apos;, u&apos;speechiness&apos;: 0.05723364924285507, u&apos;foreign release ids&apos;: (u&apos;spotify-CA:album:3myPwaMYjdwht' datatype='string' hidden='true' name='[SRDSQApPy7aa3fB3BYu/gzjFVYA%3D&apos;, u&apos;speechiness&apos;: 0.05723364924285507, u&apos;foreign_release_ids&apos;: (u&apos;spotify-CA:album:3myPwaMYjdwht]' role='dimension' type='nominal' />
+      <column aggregation='Sum' caption='Liveliness' datatype='real' name='[{u&apos;status&apos;: u&apos;complete&apos;, u&apos;liveness&apos;: 0.11341793790669664, u&apos;tempo&apos;: 112.055, u&apos;energy&apos;: 0.8003762485664534, &apos;analysis_url&apos;: u&apos; - Split 2 - Split 1]' role='dimension' type='ordinal' user:SplitFieldIndex='17' user:SplitFieldOrigin='[textscan.1sho29k1hq9tru1ggb51c01j644n].[{u&apos;status&apos;: u&apos;complete&apos;, u&apos;liveness&apos;: 0.11341793790669664, u&apos;tempo&apos;: 112.055, u&apos;energy&apos;: 0.8003762485664534, &apos;analysis_url&apos;: u&apos; - Split 2]'>
+        <calculation class='tableau' formula='FLOAT(TRIM( SPLIT( SPLIT( SPLIT( [{u&apos;status&apos;: u&apos;complete&apos;, u&apos;liveness&apos;: 0.11341793790669664, u&apos;tempo&apos;: 112.055, u&apos;energy&apos;: 0.8003762485664534, &apos;analysis_url&apos;: u&apos; - Split 2], &quot;u&quot;, 2 ), &quot;&apos;&quot;, 3 ), &quot;:&quot;, 2 ) ))' />
+      </column>
+      <column caption='gsf' datatype='string' hidden='true' name='[{u&apos;status&apos;: u&apos;complete&apos;, u&apos;liveness&apos;: 0.11341793790669664, u&apos;tempo&apos;: 112.055, u&apos;energy&apos;: 0.8003762485664534, &apos;analysis_url&apos;: u&apos; - Split 2]' role='dimension' type='nominal' user:SplitFieldIndex='12' user:SplitFieldOrigin='[textscan.1sho29k1hq9tru1ggb51c01j644n].[{u&apos;status&apos;: u&apos;complete&apos;, u&apos;liveness&apos;: 0.11341793790669664, u&apos;tempo&apos;: 112.055, u&apos;energy&apos;: 0.8003762485664534, &apos;analysis_url&apos;: u&apos;]'>
+        <calculation class='tableau' formula='TRIM( SPLIT( [{u&apos;status&apos;: u&apos;complete&apos;, u&apos;liveness&apos;: 0.11341793790669664, u&apos;tempo&apos;: 112.055, u&apos;energy&apos;: 0.8003762485664534, &apos;analysis_url&apos;: u&apos;], &quot;,&quot;, 2 ) )' />
+      </column>
+      <column caption='Tempo' datatype='real' name='[{u&apos;status&apos;: u&apos;complete&apos;, u&apos;liveness&apos;: 0.11341793790669664, u&apos;tempo&apos;: 112.055, u&apos;energy&apos;: 0.8003762485664534, &apos;analysis_url&apos;: u&apos; - Split 3 - Split 1]' role='dimension' type='ordinal' user:SplitFieldIndex='18' user:SplitFieldOrigin='[textscan.1sho29k1hq9tru1ggb51c01j644n].[{u&apos;status&apos;: u&apos;complete&apos;, u&apos;liveness&apos;: 0.11341793790669664, u&apos;tempo&apos;: 112.055, u&apos;energy&apos;: 0.8003762485664534, &apos;analysis_url&apos;: u&apos; - Split 3]'>
+        <calculation class='tableau' formula='FLOAT(TRIM( SPLIT( SPLIT( SPLIT( [{u&apos;status&apos;: u&apos;complete&apos;, u&apos;liveness&apos;: 0.11341793790669664, u&apos;tempo&apos;: 112.055, u&apos;energy&apos;: 0.8003762485664534, &apos;analysis_url&apos;: u&apos; - Split 3], &quot;u&quot;, 2 ), &quot;&apos;&quot;, 3 ), &quot;:&quot;, 2 ) ))' />
+      </column>
+      <column caption='gdfs' datatype='string' hidden='true' name='[{u&apos;status&apos;: u&apos;complete&apos;, u&apos;liveness&apos;: 0.11341793790669664, u&apos;tempo&apos;: 112.055, u&apos;energy&apos;: 0.8003762485664534, &apos;analysis_url&apos;: u&apos; - Split 3]' role='dimension' type='nominal' user:SplitFieldIndex='13' user:SplitFieldOrigin='[textscan.1sho29k1hq9tru1ggb51c01j644n].[{u&apos;status&apos;: u&apos;complete&apos;, u&apos;liveness&apos;: 0.11341793790669664, u&apos;tempo&apos;: 112.055, u&apos;energy&apos;: 0.8003762485664534, &apos;analysis_url&apos;: u&apos;]'>
+        <calculation class='tableau' formula='TRIM( SPLIT( [{u&apos;status&apos;: u&apos;complete&apos;, u&apos;liveness&apos;: 0.11341793790669664, u&apos;tempo&apos;: 112.055, u&apos;energy&apos;: 0.8003762485664534, &apos;analysis_url&apos;: u&apos;], &quot;,&quot;, 3 ) )' />
+      </column>
+      <column caption='Energy' datatype='real' name='[{u&apos;status&apos;: u&apos;complete&apos;, u&apos;liveness&apos;: 0.11341793790669664, u&apos;tempo&apos;: 112.055, u&apos;energy&apos;: 0.8003762485664534, &apos;analysis_url&apos;: u&apos; - Split 4 - Split 1]' role='measure' type='quantitative' user:SplitFieldIndex='19' user:SplitFieldOrigin='[textscan.1sho29k1hq9tru1ggb51c01j644n].[{u&apos;status&apos;: u&apos;complete&apos;, u&apos;liveness&apos;: 0.11341793790669664, u&apos;tempo&apos;: 112.055, u&apos;energy&apos;: 0.8003762485664534, &apos;analysis_url&apos;: u&apos; - Split 4]'>
+        <calculation class='tableau' formula='FLOAT(TRIM( SPLIT( SPLIT( SPLIT( [{u&apos;status&apos;: u&apos;complete&apos;, u&apos;liveness&apos;: 0.11341793790669664, u&apos;tempo&apos;: 112.055, u&apos;energy&apos;: 0.8003762485664534, &apos;analysis_url&apos;: u&apos; - Split 4], &quot;u&quot;, 2 ), &quot;&apos;&quot;, 3 ), &quot;:&quot;, 2 ) ))' />
+      </column>
+      <column caption='gfsgsg' datatype='string' hidden='true' name='[{u&apos;status&apos;: u&apos;complete&apos;, u&apos;liveness&apos;: 0.11341793790669664, u&apos;tempo&apos;: 112.055, u&apos;energy&apos;: 0.8003762485664534, &apos;analysis_url&apos;: u&apos; - Split 4]' role='dimension' type='nominal' user:SplitFieldIndex='14' user:SplitFieldOrigin='[textscan.1sho29k1hq9tru1ggb51c01j644n].[{u&apos;status&apos;: u&apos;complete&apos;, u&apos;liveness&apos;: 0.11341793790669664, u&apos;tempo&apos;: 112.055, u&apos;energy&apos;: 0.8003762485664534, &apos;analysis_url&apos;: u&apos;]'>
+        <calculation class='tableau' formula='TRIM( SPLIT( [{u&apos;status&apos;: u&apos;complete&apos;, u&apos;liveness&apos;: 0.11341793790669664, u&apos;tempo&apos;: 112.055, u&apos;energy&apos;: 0.8003762485664534, &apos;analysis_url&apos;: u&apos;], &quot;,&quot;, 4 ) )' />
+      </column>
+      <column caption='{U&apos;Status&apos;: U&apos;Complete&apos;, U&apos;Liveness&apos;: 0.11341793790669664, U&apos;Tempo&apos;: 112.055, U&apos;Energy&apos;: 0.8003762485664534, &apos;Analysis Url&apos;: U&apos; - Split 5' datatype='string' hidden='true' name='[{u&apos;status&apos;: u&apos;complete&apos;, u&apos;liveness&apos;: 0.11341793790669664, u&apos;tempo&apos;: 112.055, u&apos;energy&apos;: 0.8003762485664534, &apos;analysis_url&apos;: u&apos; - Split 5]' role='dimension' type='nominal' user:SplitFieldIndex='15' user:SplitFieldOrigin='[textscan.1sho29k1hq9tru1ggb51c01j644n].[{u&apos;status&apos;: u&apos;complete&apos;, u&apos;liveness&apos;: 0.11341793790669664, u&apos;tempo&apos;: 112.055, u&apos;energy&apos;: 0.8003762485664534, &apos;analysis_url&apos;: u&apos;]'>
+        <calculation class='tableau' formula='TRIM( SPLIT( [{u&apos;status&apos;: u&apos;complete&apos;, u&apos;liveness&apos;: 0.11341793790669664, u&apos;tempo&apos;: 112.055, u&apos;energy&apos;: 0.8003762485664534, &apos;analysis_url&apos;: u&apos;], &quot;,&quot;, 5 ) )' />
+      </column>
+      <column caption='{U&apos;Status&apos;: U&apos;Complete&apos;, U&apos;Liveness&apos;: 0.11341793790669664, U&apos;Tempo&apos;: 112.055, U&apos;Energy&apos;: 0.8003762485664534, &apos;Analysis Url&apos;: U&apos;' datatype='string' hidden='true' name='[{u&apos;status&apos;: u&apos;complete&apos;, u&apos;liveness&apos;: 0.11341793790669664, u&apos;tempo&apos;: 112.055, u&apos;energy&apos;: 0.8003762485664534, &apos;analysis_url&apos;: u&apos;]' role='dimension' type='nominal' />
+      <layout dim-ordering='alphabetic' dim-percentage='0.53163' measure-ordering='alphabetic' measure-percentage='0.46837' show-structure='true' />
+      <semantic-values>
+        <semantic-value key='[Country].[Name]' value='&quot;United States&quot;' />
+      </semantic-values>
+      <field-sort-info field-sort-order-type='custom-order'>
+        <field-sort-custom-order field='SRDSQApPy7aa3fB3BYu/gzjFVYA%3D&apos;, u&apos;speechiness&apos;: 0.05723364924285507, u&apos;foreign_release_ids&apos;: (u&apos;spotify-CA:album:3myPwaMYjdwht - Split 2 - Split 1' />
+        <field-sort-custom-order field='{u&apos;status&apos;: u&apos;complete&apos;, u&apos;liveness&apos;: 0.11341793790669664, u&apos;tempo&apos;: 112.055, u&apos;energy&apos;: 0.8003762485664534, &apos;analysis_url&apos;: u&apos; - Split 2 - Split 1' />
+        <field-sort-custom-order field='{u&apos;status&apos;: u&apos;complete&apos;, u&apos;liveness&apos;: 0.11341793790669664, u&apos;tempo&apos;: 112.055, u&apos;energy&apos;: 0.8003762485664534, &apos;analysis_url&apos;: u&apos; - Split 3 - Split 1' />
+        <field-sort-custom-order field='{u&apos;status&apos;: u&apos;complete&apos;, u&apos;liveness&apos;: 0.11341793790669664, u&apos;tempo&apos;: 112.055, u&apos;energy&apos;: 0.8003762485664534, &apos;analysis_url&apos;: u&apos; - Split 4 - Split 1' />
+        <field-sort-custom-order field='1454460678&amp;Signature - Split 1' />
+      </field-sort-info>
+    </datasource>
+  </datasources>
+  <worksheets>
+    <worksheet name='Connor&apos;s music, energy of songs'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='echonest_connor' name='textscan.1sho29k1hq9tru1ggb51c01j644n' />
+          </datasources>
+          <datasource-dependencies datasource='textscan.1sho29k1hq9tru1ggb51c01j644n'>
+            <column aggregation='Sum' caption='Song ID' datatype='integer' name='[1454460678&amp;Signature - Split 1]' role='dimension' type='ordinal' user:SplitFieldIndex='20' user:SplitFieldOrigin='[textscan.1sho29k1hq9tru1ggb51c01j644n].[1454460678&amp;Signature]'>
+              <calculation class='tableau' formula='INT( SPLIT( [1454460678&amp;Signature], &quot;&amp;&quot;, 1 ) )' />
+            </column>
+            <column caption='Song ID and sig' datatype='string' hidden='true' name='[1454460678&amp;Signature]' role='dimension' type='nominal' />
+            <column-instance column='[1454460678&amp;Signature - Split 1]' derivation='None' name='[none:1454460678&amp;Signature - Split 1:ok]' pivot='key' type='ordinal' />
+            <column-instance column='[{u&apos;status&apos;: u&apos;complete&apos;, u&apos;liveness&apos;: 0.11341793790669664, u&apos;tempo&apos;: 112.055, u&apos;energy&apos;: 0.8003762485664534, &apos;analysis_url&apos;: u&apos; - Split 4 - Split 1]' derivation='Sum' name='[sum:{u&apos;status&apos;: u&apos;complete&apos;, u&apos;liveness&apos;: 0.11341793790669664, u&apos;tempo&apos;: 112.055, u&apos;energy&apos;: 0.8003762485664534, &apos;analysis_url&apos;: u&apos; - Split 4 - Split 1:qk]' pivot='key' type='quantitative' />
+            <column caption='Energy' datatype='real' name='[{u&apos;status&apos;: u&apos;complete&apos;, u&apos;liveness&apos;: 0.11341793790669664, u&apos;tempo&apos;: 112.055, u&apos;energy&apos;: 0.8003762485664534, &apos;analysis_url&apos;: u&apos; - Split 4 - Split 1]' role='measure' type='quantitative' user:SplitFieldIndex='19' user:SplitFieldOrigin='[textscan.1sho29k1hq9tru1ggb51c01j644n].[{u&apos;status&apos;: u&apos;complete&apos;, u&apos;liveness&apos;: 0.11341793790669664, u&apos;tempo&apos;: 112.055, u&apos;energy&apos;: 0.8003762485664534, &apos;analysis_url&apos;: u&apos; - Split 4]'>
+              <calculation class='tableau' formula='FLOAT(TRIM( SPLIT( SPLIT( SPLIT( [{u&apos;status&apos;: u&apos;complete&apos;, u&apos;liveness&apos;: 0.11341793790669664, u&apos;tempo&apos;: 112.055, u&apos;energy&apos;: 0.8003762485664534, &apos;analysis_url&apos;: u&apos; - Split 4], &quot;u&quot;, 2 ), &quot;&apos;&quot;, 3 ), &quot;:&quot;, 2 ) ))' />
+            </column>
+            <column caption='gfsgsg' datatype='string' hidden='true' name='[{u&apos;status&apos;: u&apos;complete&apos;, u&apos;liveness&apos;: 0.11341793790669664, u&apos;tempo&apos;: 112.055, u&apos;energy&apos;: 0.8003762485664534, &apos;analysis_url&apos;: u&apos; - Split 4]' role='dimension' type='nominal' user:SplitFieldIndex='14' user:SplitFieldOrigin='[textscan.1sho29k1hq9tru1ggb51c01j644n].[{u&apos;status&apos;: u&apos;complete&apos;, u&apos;liveness&apos;: 0.11341793790669664, u&apos;tempo&apos;: 112.055, u&apos;energy&apos;: 0.8003762485664534, &apos;analysis_url&apos;: u&apos;]'>
+              <calculation class='tableau' formula='TRIM( SPLIT( [{u&apos;status&apos;: u&apos;complete&apos;, u&apos;liveness&apos;: 0.11341793790669664, u&apos;tempo&apos;: 112.055, u&apos;energy&apos;: 0.8003762485664534, &apos;analysis_url&apos;: u&apos;], &quot;,&quot;, 4 ) )' />
+            </column>
+            <column caption='{U&apos;Status&apos;: U&apos;Complete&apos;, U&apos;Liveness&apos;: 0.11341793790669664, U&apos;Tempo&apos;: 112.055, U&apos;Energy&apos;: 0.8003762485664534, &apos;Analysis Url&apos;: U&apos;' datatype='string' hidden='true' name='[{u&apos;status&apos;: u&apos;complete&apos;, u&apos;liveness&apos;: 0.11341793790669664, u&apos;tempo&apos;: 112.055, u&apos;energy&apos;: 0.8003762485664534, &apos;analysis_url&apos;: u&apos;]' role='dimension' type='nominal' />
+          </datasource-dependencies>
+          <sort class='computed' column='[textscan.1sho29k1hq9tru1ggb51c01j644n].[none:1454460678&amp;Signature - Split 1:ok]' direction='DESC' using='[textscan.1sho29k1hq9tru1ggb51c01j644n].[sum:{u&apos;status&apos;: u&apos;complete&apos;, u&apos;liveness&apos;: 0.11341793790669664, u&apos;tempo&apos;: 112.055, u&apos;energy&apos;: 0.8003762485664534, &apos;analysis_url&apos;: u&apos; - Split 4 - Split 1:qk]' />
+          <aggregation value='true' />
+        </view>
+        <style />
+        <panes>
+          <pane id='1'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <reference-line axis-column='[textscan.1sho29k1hq9tru1ggb51c01j644n].[sum:{u&apos;status&apos;: u&apos;complete&apos;, u&apos;liveness&apos;: 0.11341793790669664, u&apos;tempo&apos;: 112.055, u&apos;energy&apos;: 0.8003762485664534, &apos;analysis_url&apos;: u&apos; - Split 4 - Split 1:qk]' enable-instant-analytics='true' fill-above='false' fill-below='false' formula='quantiles' id='refline0' label-type='none' scope='per-pane' symmetric='true' tile-count='4' value-column='[textscan.1sho29k1hq9tru1ggb51c01j644n].[sum:{u&apos;status&apos;: u&apos;complete&apos;, u&apos;liveness&apos;: 0.11341793790669664, u&apos;tempo&apos;: 112.055, u&apos;energy&apos;: 0.8003762485664534, &apos;analysis_url&apos;: u&apos; - Split 4 - Split 1:qk]' z-order='1' />
+            <reference-line axis-column='[textscan.1sho29k1hq9tru1ggb51c01j644n].[sum:{u&apos;status&apos;: u&apos;complete&apos;, u&apos;liveness&apos;: 0.11341793790669664, u&apos;tempo&apos;: 112.055, u&apos;energy&apos;: 0.8003762485664534, &apos;analysis_url&apos;: u&apos; - Split 4 - Split 1:qk]' enable-instant-analytics='true' formula='median' id='refline1' label-type='automatic' probability='95' scope='per-pane' value-column='[textscan.1sho29k1hq9tru1ggb51c01j644n].[sum:{u&apos;status&apos;: u&apos;complete&apos;, u&apos;liveness&apos;: 0.11341793790669664, u&apos;tempo&apos;: 112.055, u&apos;energy&apos;: 0.8003762485664534, &apos;analysis_url&apos;: u&apos; - Split 4 - Split 1:qk]' z-order='2' />
+            <style>
+              <style-rule element='mark'>
+                <format attr='mark-color' value='#4f6e8d' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows>[textscan.1sho29k1hq9tru1ggb51c01j644n].[none:1454460678&amp;Signature - Split 1:ok]</rows>
+        <cols>[textscan.1sho29k1hq9tru1ggb51c01j644n].[sum:{u&apos;status&apos;: u&apos;complete&apos;, u&apos;liveness&apos;: 0.11341793790669664, u&apos;tempo&apos;: 112.055, u&apos;energy&apos;: 0.8003762485664534, &apos;analysis_url&apos;: u&apos; - Split 4 - Split 1:qk]</cols>
+      </table>
+    </worksheet>
+  </worksheets>
+  <windows source-height='28'>
+    <window class='worksheet' maximized='true' name='Connor&apos;s music, energy of songs'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+        </edge>
+      </cards>
+      <viewpoint>
+        <highlight>
+          <color-one-way>
+            <field>[textscan.1sho29k1hq9tru1ggb51c01j644n].[none:1454460678&amp;Signature - Split 1:ok]</field>
+            <field>[textscan.1sho29k1hq9tru1ggb51c01j644n].[none:SRDSQApPy7aa3fB3BYu/gzjFVYA%3D&apos;, u&apos;speechiness&apos;: 0.05723364924285507, u&apos;foreign_release_ids&apos;: (u&apos;spotify-CA:album:3myPwaMYjdwht - Split 2 - Split 1:nk]</field>
+            <field>[textscan.1sho29k1hq9tru1ggb51c01j644n].[none:{u&apos;status&apos;: u&apos;complete&apos;, u&apos;liveness&apos;: 0.11341793790669664, u&apos;tempo&apos;: 112.055, u&apos;energy&apos;: 0.8003762485664534, &apos;analysis_url&apos;: u&apos; - Split 2 - Split 1:ok]</field>
+            <field>[textscan.1sho29k1hq9tru1ggb51c01j644n].[none:{u&apos;status&apos;: u&apos;complete&apos;, u&apos;liveness&apos;: 0.11341793790669664, u&apos;tempo&apos;: 112.055, u&apos;energy&apos;: 0.8003762485664534, &apos;analysis_url&apos;: u&apos; - Split 4 - Split 1:nk]</field>
+          </color-one-way>
+        </highlight>
+      </viewpoint>
+    </window>
+  </windows>
+  <thumbnails>
+    <thumbnail height='192' name='Connor&apos;s music, energy of songs' width='192'>
+      iVBORw0KGgoAAAANSUhEUgAAAMAAAADACAYAAABS3GwHAAAACXBIWXMAAA7EAAAOxAGVKw4b
+      AAAcO0lEQVR4nO3d6Y8cd3rY8W/dXX3fcw/JkYY3RR2UREmU1g6Q5EVe5I0RIC/8DwQIEuRA
+      AiNBgMCBYyROHMMJnI1tZL32euON17tOvNn12t7sJa12KUqkRFIkZzj3TE8f0/dZV14MJa/t
+      nnU0Zs/2gM/nDXuaM4X5AfOg6ttVXa0EQRAgxBNK/XH/AkL8OMkAiCeaDIB4oskAiCeaDIB4
+      oukA8kKQeFLpHz3o9XqPbaOe53F7aQPPf2ybFGIkdABFUbBt++Mn66VNbtwvMGl1aQUWrpUi
+      65fxU6dYvnOTbCJEyI6wUeqQDA1QtBBtR2E2G8bRE5x/ep5f+9K3KVZbP7aFCfH/Qx/2ZCia
+      RnGXeLB6n549g6sUqTpFWnqZWr1Gt6XTbbUxE3METodefYtqX2V2+mX2ynvA/BEvQ4jDGToA
+      Vsjm+edeIHz1JTp9l3Z3QD4VoefreIMu3qCHEY7SaraxtADdjtGs17AtjdnZE0e9BiEOTRnF
+      pRCu6/K1795k4EoEiPE2dA/wOExmkwQoo9q8EI/F0AGoFTe4cb/AhNWh5YdwreR+BKcXWL59
+      k2zCJGTH2Ch1SIX6KJrF+k6VyxcXaDsGz11Y5L9+4Y8lgsXYGzoAdjyD6i3z8MEDuvYMLiUa
+      bonWWpVqvcago9NtP8SIz6J4XdxuhVbLobC9Q2r27FGvQYhDGx7Bls0LL1zBvvoy3YFLp+eQ
+      TYTpBxreoIfv9NHtCO1WB0vzUa0IrUYTFQctFD/qNQhxaCOL4D96630GciZMjLmRRXAmGcUL
+      JILFeDswgt+5t8OE2aYVhHDMFLmghJ9+iuXb75GJmdiR/QhOR3xU1aDWDbhwMs1uL8zz507w
+      3373GxLBYuwNHYBwPIvmL7P6cJluaBqHCh2vQmO9Qa1exe0ZdFfW0GIzEDNYf7hE09Px+nXM
+      2BQgJ8PE8TB0AEwrxJUrLxIyrtIbuHT7Lum4zcBX8ZwBvttDtyJ0Ol1M1eeFF1+n2aiTzaTo
+      9dyjXoMQhzayCP7G92/LmWAx9kYWwbFICM+XCBbjbegAVHfXeefeDnmzRcu3ccwk+aCMn3mK
+      pQ/eIxMzsCNxNh9FMIpKud7j0plZKv0wL5w/ya//3jclgsXYGzoAkWQePXjIxuoqHWsKhz36
+      foX6Vot6vYbv6HTXN9GiUyhxg83VNQIrzr2H6+jhCeDk0a5CiEMaHsGmxUsvvoSlX6XnevT6
+      LsloCCfQ8N0BntNHt8J0u10MNeDKy2/QbrVJJWP0+95Rr0GIQxtZBH/z+h0cT95rLMbbyCI4
+      ZJkY8iKQGHPDI7iwxg/u7TBhtGgFIQZGkgnK+JmnefD+u2RiOuFoko1Sh7PzEUotlXJlj6m4
+      hpGa5dnzi3zmy9+SCBZjb+gARNMTmKywtbFO25rCDWq4QZXadodGvYHiG2xt7aCEp9hraFy+
+      8irX33oTw/DZq9aPeg1CHNrQATAMi5dfehlTf4WB69MbuCQiFk6g4rsOvjtAM0P0en0s08AO
+      mbx69WV810EPhY96DUIc2sgi+Ds3PpQIFmNvZBGsqSry5y/G3dAB2Cus8YO720wYTZqBTd9I
+      MkmJILvI/VvvkolqhGNJNstdElYXK5KkstdjLqNiTT/DmdkUn/3f35EIFmNv6ADE05NY6go7
+      21u0zUmcoA7UqO32qbda6OjsFIoQnqCnuvQqFdrtHonFC9RdOREmjo+hA6AbJldfvoqhv4rj
+      +vQdl5ht4QYqvufguw6aadHvDdDVANUw6XV7xKNhnEAFOfgRx8TIIvit9+7j+jIIYryNLII9
+      35e7Q4uxN3QAKjur/ODuNnmjQSuw6elJppQSQfY0927dIBNRCcfTbJY6nD8RZaPYptnzSFsO
+      dv4pXrx0ms995U2JYDH2hg5AIjtFSFulWCjQMidx/CaaUqdadGm2O5iqQbG0RBDKU20OOPf0
+      DF//1g2URASl3T7qNQhxaMMjWDd55eorGNprOJ7PwPWIhAzcQCXwXHzPRTNMBv0BhqFjmgZ/
+      JzePoSsomnXUaxDi0EYWwW/feoCcCBbjbmQR3B84DOSUgBhzB0TwCt+/s01er9MMwvT0BNNK
+      mSC3yIc33yUTUYjE02yWu6QjHtH0NA+XlpjJhJk9e4X5yTSf/+r3JILF2Bs6AMnsDLa+RrlU
+      omlM4PgtTLXBXsWj0+tiGyaV1Yd4Vg7LMtlae0iz3UWdSrO2usr8ZPqo1yHEoQwdAE03ePWV
+      V9G1a7iej+P62JaOF6gEvkvge6i6gTNw0BTQTAvf239e0YyjXoMQhzayCL5+e1nuCyTG3sgi
+      uNnuyZ3hxNgbOgDl7RW+f2fz4wjuakmm1RLkTnP3vRtkwhBJZtkqdUlHPSKpqf0ITpkYuUVe
+      vnyGL/zh2xLBYuwNHYBUfpbwgzX2yns0dZ2Bv42tNdnbu0/fGdD3DKprq3hmllDIYGdznXav
+      T8cxsLudo16DEIc2PII1nddefQ1NvYbnB7ieT8jU8QKFwPf2I1gzcF0XVQnQdBPf9yDwQdWR
+      y6HFcTGyCH737op8QowYeyOL4Eq9JREsxt7wCN56yNt3NslpNZpBhK6WYEYtEeTOcPfmDTJ2
+      QDSZZbPcI2G2CMUz7BTaXDk/we4gziuXn+aLf/QDiWAx9oYOQHpijsjSOvVKnYZuMfAK1PUW
+      lfoSjuvgYrK9uYFnpAlUnU6jhRp0WCnsgSmHPeL4GDoAqqZz7bVraKqC5wf4foChq/goBL4P
+      gY+ianiej6oEoGp4rodp6vh+wAiyQoiRGFkE37y3hi8RLMbcyCK4UK5JBIuxN3QASlsP+d7t
+      DfJqjQZhOmqCObVEkD/LnffeIW37xFJ5tso9EkaT+NRplu99yLVnT7HVT/Dqs4t8+RvvSASL
+      sacOezIzOU/MCmg2mzQ6Pp16kWarxeryMn7gE2gmhe0tfM8D3aS8vYbje+xUGnTb8kcvjo/h
+      EaxqvH7tDVQF/CAgCEDTFIJAIQh8IEBRVHzfR1FAUVSCIEBV9//1fTn0EcfDyCL4gwfrBMN3
+      MEKMjZFF8EZhj77cJ1SMueERvLnMW7c3yKtVGkGEtppgXnsUwe9eJxXyiafzbJZ7pKMeITvO
+      ZrHOS6dzbA/ivP7COf7XN29IBIuxN/QYJTt9gngI2u0OrT70miXanQ5rD1dAAdUMUSzsEAQB
+      sXAIxU4xP5mi2Xa48vyFo16DEIc2dA+gKBqfeuNTH38dBAGKovyFrz/Khx/+PxQFT17/F8fE
+      yCL47vImgSIRLMbbyCJ4ebNI35EIFuNt6AAUN5d464MNcsoeDSK0lf0IZuIct9+9TspyiWcm
+      2Sr3uLQQo9S1KW4uEw5pnH3udZ6ey/OVb78nESzG3tBjlNz0KRK2Qq/XpzNQcTp79Pp9NlbX
+      0DQFw45SKe4C0OgGvPLSJWbmF5ifmWJna/NIFyDEX8XwCFY1fuJTP/GJNvSpa1c/fuy67l/p
+      lxLiqIwsgu+tbnPADkaIsTF0D/DnZ+LPvwxKEMBHXz96HAQBCnz8/L2Vbbpye2gx5g4+E/zB
+      BlmlQpMobS3BnFJ8FMHvkA65zD51kXurm0zFFFQ7xfbmDrmsjZ2Y4eXnL/LV796SCBZjb+gx
+      Sn7mFKmIhuO49Dwdt1Nl4DhsbWxgGBpmJE4/0JjLJ1BQIPCJ2Bo9Z/8qUSGOi+HnAVSNN954
+      49AblQgWx8XIInhpvQCyNxBj7sAI/ihqAwI8L0DXVAL+4htiCAJQVQgCNE37OKDff7AuESzG
+      3o+M4AxlmkqUnp5imgLkz3HnvRukQy7RZI5C1eWZpxOsFRoUq11ePDdBxUtz7fkzfP2tDySC
+      xdg7MILTUR3PDxj4Jm63iuv5FLa2sSydUDRBo15DVVUa3YAXnz2HoQyotFycfveo1yDEoY2s
+      Af7ez/667AHE2BvZAKxs7oKqPe5NC/FYHRjBnuc/atsAx/UxDW0/gh+Fr6Kqf+bWiL7nYeg6
+      H70V5p27q3T78nKoGG9/SQSXaBKjb6aZ8rf3I/jmu6RDHtFEhkLdI2Y0QbGodzxmszbJhStc
+      OpnlT96+LYdAYuwdGMGZuIEfqLiKhdut4QcKu4UCoZCBHU/SajXRNBU7HENVQNM0zp09g6rK
+      /UDF8XHgmeBrr1071AYnkTPB4vgYWQSvbZdQJILFmDswgl3X/fjzAQaOi20Z+Kj7H5IX+Kia
+      QfDog/GUR4891wFVR9dU3r61REciWIy5HxnB6aBIU4njWBkm3C3In+XOrffIhDxmFs5xf22b
+      qZiKYtisFWq8fmmG7UGCq888zf+9flciWIy9AyM4mzBRVB1ftfG6NVBVysUiEdsknEjhaSFO
+      TqXRdY1IaorFE5PUmy7PPXPmqNcgxKEdGMGvvfraoTcqDSyOi5FF8GahgqpJBIvxdmAEO47z
+      cQT3Bw4R28QLNALf/fiT4ve/BwIU+v0BpqmjPIrgb9/4UCJYjL0fGcEpf5eWksC1M+QGmzBx
+      lru3bpIJeYRjKUotiBpNYtlT1IrbGJrP6cuvsDCb59s37kkEi7F3YATnkhaaboERxu/VUXWD
+      vXKFaDhENJVhMOhjGDqRaBxDg8nZE5yYn6FcLB71GoQ4tAMj+NVXXj30RuVMsDguRhbB28U9
+      NG1k994V4rE4MIIHgwG6quD6Ad3+gFg4hIeK7zrge6iGyWAwIPBcVN3A930sXSNQdTRV4U++
+      f4dOzznq9QjxifyICF4n6RVpq3G8cI5Mbx1l4ix3379FxvaxI3EqbY1nz6ZZ36qxvrVLLBbi
+      9IUXeObMSd58775EsBh7B0ZwPmVjWDaKGcXvNdCtELW9KvGoTSyVwfU8DFOn0fZ57drLpOJR
+      8rksvY780YvjQ94TLJ5oIxuA3UpNIliMvQMjuN/vo2sKrhfQ7vZJRm08NDx3QOC7aIZFvz9A
+      VwM0I0S308EyVBQ9hK4pfO27t2hJBIsxN3QAKrtbXL+9RH/nHiTm6CsW0fYaQeok6xubTER1
+      QqEQHT9CPOrgawk65S0MyyA2scC1K5f43q0lOQQSY2/oAGQnpjlZbxM9kaXYhp7jcio9zZ4f
+      YSKdwNIDfFRqHZ+plIXreax5k0xloljx9FGvQYhDG36QrqicPbN/Xf/sDz09BcD80B85f/FP
+      H7uuSyYZlbdEirE3sgj2PA/Lsh73poV4rIbuAXxvwNZOmYSt0h4EVFt95jNh+nqUVrWEFjio
+      VoRao0PM9DHCCUrlPZIRHS2SJp+K8y9/+QtUGp2jXo8Qn8gBEbzNrTsP6W7dQcssYCezPHj7
+      XdTsAiurG8xlI2iBj2tmicd8Bp5FmD4rvS7xzBz5ly5Ta3ao1CSCxXgbOgC5qXkWWwOii1MU
+      mz5dx2Xh9Z+k6kWYnchhqB4BGrWOx0TSBM2kWKoyn81gx3NHvQYhDu3ACD59+jQA0z/09AQA
+      M0N/5NG3A/sNkE/H0XXjsfySQoyKRLB4og2PYHfAxk6JZEih7QRU2w7z6RB9PU5zbxcdB8X8
+      0wg24zl6rTo6Lj1sTs1N8jO/9DtU6u2jXo8Qn8jQAdgr7vDB3WXaGx9g5J4mlMhw/60baNkF
+      VtY2mc9F0QIfz8yh603wFO4+3OGn/vrLkMwA0Gx3qTXlVSAx3oafCZ6a43TbIX5mlkLDpeu4
+      PP3X/gZVL8zJ2Wk0HAJFp9Z2SdkptHCK+ZML+LrFyek0ePKWSHE8HBjBi4tPAx+F774s8NH5
+      4B/FBSazSWkAMfYkgsUT7YAI7rO2VSJl70dwre0yl7bo63EalV0MxcGM5ei0GhjsnxXeLZbJ
+      JMJYsSzZZJR//oufpywRLMbc8AguFbh7f5nG2vtY+UWseJoP33wHLbvA6voW8/kYM7Mn2Szt
+      kY3oBHqYRnmb3ViSSLhC9uUXaHf7NNu9o16PEJ/I8AienON0xyV57gQ79QGdgcfi3/xbVL0w
+      i6fmUf0BdmqaTDaD32/jo+D600xnY9jJ/FGvQYhDG1kD/JtP/x7VluwBxHiTCBZPtAMjeHWj
+      SCoMLQfqHY+5lEnfSNAo76Djohhhas0OcSvAiqUo75ZIJsJgxZnOpfin/+FzlGsSwWK8HRDB
+      u3y4tER95SbW5BlCsRQffucd1Owp1ta3OTGZQAs8fCtHMqlQvXkTjAS+22Jh8RLTuRS9vkOn
+      Nzjq9QjxiRwQwbOc6bqkLy6wXe3RHnicufC3qbphzp8ugdcH1aDacshGVean5ymWa6QS8+h2
+      7KjXIMShjawB/u2vfpmaRLAYcxLB4ok29BDIc3qsbOySDiu0BlDvecwlDfpGknppG0PZj+Bq
+      o0vc8tGsCHu1JtmkTWDGmcmn+cf//jcpVSWCxXgbOgDVcpEHD5fZW3oXe/o8VjTO3W+/g5o5
+      xdrGNqemUmiBS2Dl0bQmnWoNM5bl7v0+585eZCafZuB49B25KlSMt4MjuOeTeeY0W5U2Hcfj
+      7OWfouraXL5QJnC6BJpJrTUgGcqhLIaoVFvk0mEUM37UaxDi0A68HHrh1EkAEj90ZUMUYCL1
+      l27UdV1OzuRIJeQVITHeJILFE+3ACF5eK5CJ7Edwo+czm9TpGylqxS1M1QXdptrskbB80EPU
+      Gh1yyRCBlWB2IsM//PnPUpT7Aokxd0AEl1hefcjb928Qmb2AFY1x+1vX0dInWdsqsDCdRvNd
+      glCeba2J4qvUazVu6zaXLjzD7EQGz/fxPP+o1yPEJ3JABM9wtu+Te+4cm6UmbcfjJ5/7u1Q9
+      mxcaZbx+G3SLarNPMpRHMWz2am1yqRCYiaNegxCHNrIG+IXP/AF1ORMsxpxEsHiiHRDBXZZW
+      C2QeXQ7d6MNsXGNgpajubu5HsBZmr9klH9eptx3a3T75TAw1lGBuMsvf/7nPyCfEiLE3dABq
+      lTIrayu8fe86kdlLWNEot5evo6ZPsr5V4KmZzKMInsCaj5CcPc/qN7/GzrbKyacuMDeZPep1
+      CHEoQwcgMzHDuX7AG1cusFFs0B74XHjxp6m6IfrNCk63iWKE2Gv0iScjZPQuqelTTGdjqLZE
+      sDg+RtYAv/jZr1Bv9x/3poV4rEY2AI7jYlrm4960EI/V0EMgd9DhwcoO2Qi0HIXmQGEmpjCw
+      MlR21gnpHuhh9hpdkqGAcGqS2l6ZhdksOw04MZXmH/z8b0gEi7E3dADq1Sprm+tcv3ed8MxF
+      zEiEOys3UFIn2Nje5dR0Gs1zwJ6gn9WpLa/TD1TW7l5HyZ7jxJR8VKo4HoZHcH6K84s+uRcu
+      sFlq0hp4nH/pp6l6IQbNCm6v+fG1QMlQwOLpZxl0GkxPZtmtyJtgxPExsgb4pd/6Ko2ORLAY
+      byMbgF5/gGlKBIvxNjyC+y3urRTIhvcjuOWozEQDBqEs5e01bMMHPUyl0SUf03HR2C1VeWo+
+      D3aOfNLmH/2735QIFmNv6AA06g02tzZ49/472NMXMMJhPlx7D5LzbO4UOTmVQnUHKOEJNv06
+      6ZDF0lYNW+2h5sLkk/ZRr0OIQxk6AOncJOdP+2SvXGS7vB/BZ69epOaGGLT2cHstFMOm2uyS
+      iZzARSeea3BucZ6WJxfAieNjZA3wn3/7DyWCxdgb2QB0uj0MQyJYjLehh0BOt8m91QLZcEDL
+      UWm7GtMRn4GdpbS5StgIUIww5XqXZMgD3aJYbjCVT2CE08xNZfknv/A5iWAx9oYOQKvVYnt7
+      k5sPbmBNncOww9zbuEWQmGOrUOLERBLF7aNEpihrTfzegN36gMJuiFNPnWduSi6HFsfD0AFI
+      ZSc4f9Ync+USO3stWn2XM688Q92zGLSq+xFs2tQaPeKWv/+e4GqDTDKCGpIbY4njY2QN8Cu/
+      83WaHfl8ADHeRjYAzXYXwzAe96aFeKyGHgINOg0+XCmQDfu0XJWOZzBluzjhPMWNh0RMsJMT
+      lCsVorqPaoUp7JY5d/oElbbCwmyOf/Yff1siWIy9oQPQ6XQo7G7xwYN3MSfOots2D7Y+wI/P
+      sb1bYj4fZ3rWodKoETMUAt2mVtrhWzsPCWVPszCbO+p1CHEoQwcgmclz4axP5sozFB5F8OnX
+      nv0zERxKTjLfa+EPOviKSiEc4fKls9Tq3aNegxCHNrIG+PT//GNaXYlgMd5GNgC1ZhtDlwgW
+      423oIVC/XefuSoGc7dFyNbq+yaQ9wAlPsLu+TNRSUI0wxVqHZMhHNcPUGm2iIZVQIs/C3BQ/
+      85/+h0SwGHtDB6DX61MqbnN36T2M/Bm0UIilnTt4sVl2imXmcjECp48WmaaqN+lWq/TNNDEr
+      IJENWJibOup1CHEoQwcgkc5y4dxZ0i8+w261Q6vnsnjteRqeyaBdw+210aww1UaHmBWgh2Ls
+      VfaIRUzMaOao1yDEoY2sAX7ti9+QCBZjb2QDsFdrokkEizE3vAFaVe48LJAPe7RcnW5gMWn1
+      cCKTFNaWiIZUIslJdkslYqaPGc1QLlfIxgwCO8PJmTz/4pe/IBEsxt7wV4EGLpVygfvLN9Fy
+      p9Esi4e7H+JGZyiUysxmY0zOetSbdbo6eKUarZ7HuYUL3Li3w8mZ/LDNCjF2hkdwKsvF8+dI
+      vXiZUn0/gp964wWanrUfwf02ocQEbq+FP+hixXM4vRaNZptzp5866jUIcWgja4D//qVv0upJ
+      BIvxNrIBKO3VJYLF2Bt6CNRt7nHn4aMzwZ5GH5sJs4sTnWJn5T4xW0Mzw+xWOyRDHroVpVyu
+      k82EyU6eJJOM8q/+y+9KBIuxN/xN8a5PdW+XpeVbqJlFVMtgpfQANzpNoVRhJhPB6/fQYzM0
+      9BaR+CS602Sn1KXeVcg8d+Go1yHEoQwdgHgyw8XzF0i9+CzlepdWz+HUp16i5ZsMOg28Xgst
+      FN2//scIUK0w1VqTeFjHiMit0cXxMbIG+I3f/xbtnvO4Ny3EYzWyASiUa2ja0B2MEGNjeAQ3
+      KnywXCAfdmm5On01TF5v48am2X54j3hYRzfDFPbazOdCVFoerWaHmckYWGkW5ib517/yRYlg
+      MfaG3x7dh3qtyMqN91HST6GYBmuVZZzINLulCtOZMG6vixGfJWoOmF28zP133sSOzrO8vsvC
+      3ORRr0OIQxk6ALFEmmcuXCTx4nNUml1aXYdTk1dpeSZOt7F/OXQoQr3RIRGzyYQ1arMLqL7L
+      hXOLR70GIQ5tZA3wW3/wHToSwWLMjWwAtot7qBLBYswNvy9QvcT7y7tM2A4tz2CghsnpLdzY
+      DFvLH5KIGOhmmJ29NulwgBVOsFOoMD8ZQU+dYjYb5Wc//SWJYDH2hg6Aj06rXmb9vfchtQC6
+      znpthUF4imJ5j6mUjdPrYMTnMFSdrXKbqOYw6Bs0Wj1ms9GjXocQhzJ0AKLxJM9cvEj8peeo
+      Nnu0egNO5F+h5Zu43SZur41uR6k32oSNACsSp1yucmo2T9uXC+DE8TGyBvj8/3mTTl8iWIy3
+      kQ3ARqGMqmqPe9NCPFZDD4HatSLvL+2Stwe0fANHi5JTG7jxOTaX7pCMmhhmmO1Kh6Ttfnxb
+      lIlMDDu3wFwuxs/96u9LBIuxN/x1StWk3apw4/0P8JOnQNPYbKzRt9coVqpMJi2cbhczMUu3
+      1caO+lQre5yciFJt95nLxY54GUIcztABiMQSXL54ifiLz1Fr92l2Hebzr9H2DNxeC7ffxrBj
+      1OotIkaAr2qU0mkmT8yTCiSCxfExsgb4na+9RbfvPe5NC/FYjWwAVreKKBLBYsz9PzY15JRc
+      xddBAAAAAElFTkSuQmCC
+    </thumbnail>
+  </thumbnails>
+</workbook>
