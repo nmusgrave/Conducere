@@ -30,7 +30,8 @@ def execute(args):
   if len(indices) > 0:
     x = [[sample[i] for i in indices] for sample in x]
 
-  kmeans = KMeans(n_clusters=3, random_state=0)
+  labels = np.unique(y)
+  kmeans = KMeans(n_clusters=len(labels), random_state=0)
   y_pred = kmeans.fit_predict(x)
 
   counts = get_cluster_counts(y, y_pred)
