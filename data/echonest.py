@@ -29,7 +29,11 @@ def get_playlist_track_analysis(playlist_tracks):
   set_api_key()
   analysis = []
   for i in range(len(playlist_tracks)):
-    next_track = track.track_from_id(playlist_tracks[i])
+
+    try:
+      next_track = track.track_from_id(playlist_tracks[i])
+    except util.EchoNestAPIError:
+      pass
 
     try:
       if not contains_all_attributes(next_track):
