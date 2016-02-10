@@ -6,8 +6,7 @@
 import sys
 
 import numpy as np
-from sklearn.cluster import MeanShift, estimate_bandwidth
-from sklearn.datasets.samples_generator import make_blobs
+from sklearn.linear_model import ARDRegression
 
 
 
@@ -21,25 +20,15 @@ def execute(args):
   if len(args) < 1:
     usage()
     sys.exit()
+
+  # Parse and partition
   names, y, x = parse(args[0])
   train_x = x[:3 * len(x) / 4]
   train_y = y[:3 * len(y) / 4]
   test_x = x[3 * len(x) / 4:]
   test_y = y[3 * len(y) / 4:]
 
-  # The following bandwidth can be automatically detected using
-  bandwidth = estimate_bandwidth(train_x, quantile=0.2, n_samples=len(train_x))
-
-  ms = MeanShift(bandwidth=bandwidth, bin_seeding=True)
-  labels = ms.fit_predict(train_x, train_y)
-  cluster_centers = ms.cluster_centers_
-
-  labels_unique = np.unique(labels)
-  n_clusters_ = len(labels_unique)
-
-  print("number of estimated clusters : %d" % n_clusters_)
-
-  predict_y = ms.predict(test_x)
+  
 
 # Parses the given file into a matrix of data. The depenedent variable is assumed
 # to be at the beginning
@@ -51,4 +40,5 @@ def parse(filename):
   dependent = [sample[0] for sample in raw]
   independent = [sample[1:] for sample in raw]
   independent = [[float(sample_point) for sample_point in sample] for sample in independent]
-  return names, dependent, np.asarray(independent)
+  return names, dependent, np.asarray(independent)irint "iteration:", t
+
