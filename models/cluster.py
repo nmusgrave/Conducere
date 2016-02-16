@@ -9,7 +9,7 @@ from sklearn.cluster import KMeans
 import math
 
 # The number of clusters should be this * number of y values
-CLUSTER_FACTOR = 2
+CLUSTER_FACTOR = 3
 
 # Gives the usage of this program
 def usage():
@@ -46,8 +46,12 @@ def execute(args):
   finals = get_final_mapping(counts, totals)
   if len(finals) < len(labels):
     print "WARNING: Not all clusters unique!"
-  print finals
-  print entropy(finals)
+  print "FINAL CLUSTERS", finals
+  print
+  print "ACCURACY", probability(finals)
+  print
+  print "ENTROPY", entropy(finals)
+  return probability(finals)
 
 
 # Parses the given file into a matrix of data. The depenedent variable is assumed
@@ -89,11 +93,14 @@ def get_final_mapping(counts, totals):
     combined[cluster[0]] = new
   return combined
 
+def probability(final):
+  return {name : value[name] / float(sum([v for k, v in value.iteritems()])) for name, value in final.iteritems()}
+
 def entropy(final):
   entropies = {}
   for name, values in final.iteritems():
     total = sum([value for k, value in values.iteritems()])
-    probabilities = [value / float(total) for k, value in values.iteritems()]
-    entropy = sum([math.log(prob, 2) * prob for prob in probabilities])
+    prob = values[name] / float(total)
+    entropy = -math.log(prob, 2) * prob - math.log(1 - prob, 2) * (1 - prob)
     entropies[name] = entropy
   return entropies
