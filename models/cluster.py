@@ -1,5 +1,8 @@
 #!/usr/bin/python
 
+# CSE 481I - Sound Capstone wi16
+# Conducere (TM)
+
 # Clustering
 
 import sys
@@ -13,7 +16,7 @@ CLUSTER_FACTOR = 3
 
 # Gives the usage of this program
 def usage():
-  print "Usage: python run.py cluster [data_file] [features to use...]"
+  print "Usage: python run.py cluster [iterations] [data_file] [features to use...]"
 
 # Executes a model for clustering data. Treats the first feature as the dependent
 # feature.

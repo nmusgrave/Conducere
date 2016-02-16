@@ -1,5 +1,8 @@
 #!/usr/bin/python
 
+# CSE 481I - Sound Capstone wi16
+# Conducere (TM)
+
 import sys
 import importlib
 

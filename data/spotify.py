@@ -1,18 +1,39 @@
-# CSE 481I - Sound Capstone
+# CSE 481I - Sound Capstone wi16
 # Conducere (TM)
 
-# This file contains logic for data collection through the Spotify
-# API. 
+# Data collection through the Spotify API. 
 
 import spotipy
 import spotipy.util as util
 
+# ==========================================
 # TODO: Make sure the following environment variables are set
 #       appropriately before trying to run.
 #
 #       SPOTIPY_CLIENT_ID
 #       SPOTIPY_CLIENT_SECRET
 #       SPOTIPY_REDIRECT_URI
+# ==========================================
+
+ 
+def get_playlist_tracks(sp, username, pl_id):
+  """
+  Description:
+    Extracts all of the tracks in a user's spotify playlist, stored at
+    playlist.tracks.items
+  Return:
+    An object representing the playlist, as following spotify's
+    playlist API.
+  """
+  pl = sp.user_playlist(username, pl_id)
+  tracks = []
+  p = pl['tracks']
+  while p['next']:
+    p = sp.next(p)
+    tracks.extend(p['items'])
+  pl['tracks']['items'].extend(tracks)
+  return pl
+
 
 def get_playlist_track_uris(playlist):
   """
@@ -57,7 +78,6 @@ def collect_playlist_data(username, user_playlists):
 
     Example: username = 'mlhopp' & user_playlists = ['coffee music', 'running']
   """
-
   # Getting token to access playlists
   token = util.prompt_for_user_token(username)
   if token:
@@ -67,6 +87,8 @@ def collect_playlist_data(username, user_playlists):
       pl_id = get_playlist_id(sp, username, playlist_name)
       if not (pl_id == None):
         pl = sp.user_playlist(username, pl_id)
+        # get all tracks from playlist
+        pl = get_playlist_tracks(sp, username, pl_id)
         track_list.extend(get_playlist_track_uris(pl))
       else:
         print ("WARNING: No playlist by name \'%s \' for user \'%s\'\n" 

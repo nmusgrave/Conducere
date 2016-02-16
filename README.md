@@ -44,3 +44,19 @@ python parse.py
 ```
 
 which prints comma-separated data to standard out (redirect to filepath, if desired)
+
+## Data Sources
+
+| user name       | user id       | playlist name  | playlist id            |
+|-----------------|---------------|----------------|------------------------|
+| Naomi Musgrave  | naomimusgrave | Conducere      | 5PncMLe2hgXNShCMjTczcJ |
+| Megan Hopp      | mlhopp        | conducere      | 7g45qlGsYfZSxIAioYBD8N |
+| Connor Moore    | 1260365679    | Capstone       | 1FRHfvYqQBnZfWwZ0aXHFB |
+| Svetlana Grabar |               |                |                        |
+| Vincent Chan    | 1257662670    | quiet yearning | 1nmlQhiuMGBxOGtH8fz3D2 |
+| Mallika Potter  | 1246241522    | vaguely indie  | 3xuiTGv241bH8BER0U9ANo |
+| Mallika Potter  | 1246241522    | feminist pop   | 1VnkZa21CrQBG9EGA4Lpxl |
+| Becca Saunders  | 1257552049    |                |                        |
+| Punya Jain      | 1215184557    |                |                        |
+
+
