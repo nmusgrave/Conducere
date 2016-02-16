@@ -29,7 +29,18 @@ def get_playlist_track_analysis(playlist_tracks):
   set_api_key()
   analysis = []
   for i in range(len(playlist_tracks)):
-    next_track = track.track_from_id(playlist_tracks[i])
+    if i % 10 == 0:
+      print 'On %dth track' % i
+    
+    print playlist_tracks[i]
+    try:
+      next_track = track.track_from_id(playlist_tracks[i])
+      print next_track
+      print '---'
+    except Exception:
+      t = playlist_tracks[i]
+      print 'Error extracting track profile: %s' % t
+      pass
 
     try:
       if not contains_all_attributes(next_track):
@@ -37,7 +48,7 @@ def get_playlist_track_analysis(playlist_tracks):
         next_track = next_track.get_analysis()
       analysis.append(next_track)
     except Exception:
-      print "Error processing track: %s" % next_track
+      print 'Error processing track: %s' % next_track
       pass 
 
     time.sleep(3) # limited to 20 access/s
