@@ -6,9 +6,10 @@ import sys
 
 import numpy as np
 from sklearn.cluster import KMeans
+import math
 
 # The number of clusters should be this * number of y values
-CLUSTER_FACTOR = 1
+CLUSTER_FACTOR = 2
 
 # Gives the usage of this program
 def usage():
@@ -46,6 +47,7 @@ def execute(args):
   if len(finals) < len(labels):
     print "WARNING: Not all clusters unique!"
   print finals
+  print entropy(finals)
 
 
 # Parses the given file into a matrix of data. The depenedent variable is assumed
@@ -77,9 +79,21 @@ def get_cluster_counts(y, y_pred):
 # Returns the final mapping, which is a decided playlist and a percentage of that cluster
 # made up of that playlist
 def get_final_mapping(counts, totals):
-  clusters = [(max(mapping, key = lambda k : mapping[k]), max(mapping.values()), totals[key]) for key, mapping in counts.iteritems()]
-  combinedClusters = {}
+  clusters = [(max(mapping, key = lambda k : mapping[k]), mapping) for key, mapping in counts.iteritems()]
+  combined = {}
   for cluster in clusters:
-    old = combinedClusters.get(cluster[0], (0, 0))
-    combinedClusters[cluster[0]] = (old[0] + cluster[1], old[1] + cluster[2])
-  return {key : value[0] / float(value[1]) for key, value in combinedClusters.iteritems()}
+    old = combined.get(cluster[0], {})
+    new = {}
+    for key in cluster[1]:
+      new[key] = cluster[1][key] + old.get(key, 0)
+    combined[cluster[0]] = new
+  return combined
+
+def entropy(final):
+  entropies = {}
+  for name, values in final.iteritems():
+    total = sum([value for k, value in values.iteritems()])
+    probabilities = [value / float(total) for k, value in values.iteritems()]
+    entropy = [math.log(prob, 2) * prob for prob in probabilities]
+    entropies[name] = entropy
+  return entropies
