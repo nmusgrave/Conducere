@@ -94,6 +94,6 @@ def entropy(final):
   for name, values in final.iteritems():
     total = sum([value for k, value in values.iteritems()])
     probabilities = [value / float(total) for k, value in values.iteritems()]
-    entropy = [math.log(prob, 2) * prob for prob in probabilities]
+    entropy = sum([math.log(prob, 2) * prob for prob in probabilities])
     entropies[name] = entropy
   return entropies
