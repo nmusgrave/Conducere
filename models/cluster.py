@@ -1,6 +1,5 @@
 #!/usr/bin/python
 
-
 # Clustering
 
 import sys
@@ -8,7 +7,8 @@ import sys
 import numpy as np
 from sklearn.cluster import KMeans
 
-
+# The number of clusters should be this * number of y values
+CLUSTER_FACTOR = 1
 
 # Gives the usage of this program
 def usage():
@@ -26,21 +26,25 @@ def execute(args):
     usage()
     sys.exit()
   names, y, x = parse(args[0])
-  indices = args[1:]
+  indices = [int(i) for i in args[1:]]
+  relevant_names = names
   if len(indices) > 0:
     x = [[sample[i] for i in indices] for sample in x]
+    relevant_names = [names[i] for i in indices]
+  print "Clustering on", str(relevant_names) + "..."
 
   labels = np.unique(y)
-  kmeans = KMeans(n_clusters=len(labels), random_state=0)
+  kmeans = KMeans(n_clusters= CLUSTER_FACTOR * len(labels), random_state=0)
   y_pred = kmeans.fit_predict(x)
 
   counts = get_cluster_counts(y, y_pred)
   totals = [0] * len(counts)
+  print counts
   for i, mapping in counts.iteritems():
     totals[i] = sum(mapping.values())
   finals = get_final_mapping(counts, totals)
-  if len(finals) < len(counts):
-    print "WARNING: Insufficient data to distinguish all playlists"
+  if len(finals) < len(labels):
+    print "WARNING: Not all clusters unique!"
   print finals
 
 
@@ -73,4 +77,9 @@ def get_cluster_counts(y, y_pred):
 # Returns the final mapping, which is a decided playlist and a percentage of that cluster
 # made up of that playlist
 def get_final_mapping(counts, totals):
-  return {max(mapping, key = lambda k : mapping[k]) : max(mapping.values()) / float(totals[key]) for key, mapping in counts.iteritems()}
+  clusters = [(max(mapping, key = lambda k : mapping[k]), max(mapping.values()), totals[key]) for key, mapping in counts.iteritems()]
+  combinedClusters = {}
+  for cluster in clusters:
+    old = combinedClusters.get(cluster[0], (0, 0))
+    combinedClusters[cluster[0]] = (old[0] + cluster[1], old[1] + cluster[2])
+  return {key : value[0] / float(value[1]) for key, value in combinedClusters.iteritems()}
