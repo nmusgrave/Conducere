@@ -20,11 +20,13 @@ def execute(args):
     possible = possibles[i]
     possible.insert(0, args[0])
     results[i] = problem(possible)
-  maxIndex = max(results, key = lambda k : sum([v for name, v in results[k].iteritems()]))
+  maxSumIndex = max(results, key = lambda k : sum([v for name, v in results[k].iteritems()]))
   print
   print
-  print "FEATURES LEARNED ON", [features[i] for i in possibles[maxIndex][1:]]
-  print results[maxIndex]
+  print "BY AVERAGE"
+  print "\tFEATURE NUMBERS", possibles[maxSumIndex][1:]
+  print "\tFEATURES LEARNED ON", [features[i] for i in possibles[maxSumIndex][1:]]
+  print "\tMAX", results[maxSumIndex]
 
 # Returns all possible subsets of numbers
 def lists(numbers):

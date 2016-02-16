@@ -12,7 +12,7 @@ from sklearn.cluster import KMeans
 import math
 
 # The number of clusters should be this * number of y values
-CLUSTER_FACTOR = 3
+CLUSTER_FACTOR = 4
 
 # Gives the usage of this program
 def usage():
@@ -26,6 +26,7 @@ def usage():
 # form of majority playlist and the percentage of the cluster belonging to that
 # playlist.
 def execute(args):
+  np.random.seed(42)
   if len(args) < 1:
     usage()
     sys.exit()
@@ -51,10 +52,8 @@ def execute(args):
     print "WARNING: Not all clusters unique!"
   print "FINAL CLUSTERS", finals
   print
-  print "ACCURACY", probability(finals)
-  print
-  print "ENTROPY", entropy(finals)
-  return probability(finals)
+  print "ACCURACY", accuracy(finals, labels)
+  return accuracy(finals, labels)
 
 
 # Parses the given file into a matrix of data. The depenedent variable is assumed
@@ -99,11 +98,14 @@ def get_final_mapping(counts, totals):
 def probability(final):
   return {name : value[name] / float(sum([v for k, v in value.iteritems()])) for name, value in final.iteritems()}
 
-def entropy(final):
-  entropies = {}
-  for name, values in final.iteritems():
-    total = sum([value for k, value in values.iteritems()])
-    prob = values[name] / float(total)
-    entropy = -math.log(prob, 2) * prob - math.log(1 - prob, 2) * (1 - prob)
-    entropies[name] = entropy
-  return entropies
+def accuracy(final, labels):
+  # tuple for (right, wrong)
+  accuracy = {label : [0, 0] for label in labels}
+  for name, data in final.iteritems():
+    for dataName, dataValue in data.iteritems():
+      if name == dataName:
+        accuracy[dataName][0] += dataValue
+      else:
+        accuracy[dataName][1] += dataValue
+  final_accuracy = {name : value[0] / float(sum(value)) for name, value in accuracy.iteritems()}
+  return final_accuracy
