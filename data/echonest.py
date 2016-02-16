@@ -37,9 +37,8 @@ def get_playlist_track_analysis(playlist_tracks):
       next_track = track.track_from_id(playlist_tracks[i])
       print next_track
       print '---'
-    except Exception:
-      t = playlist_tracks[i]
-      print 'Error extracting track profile: %s' % t
+    except util.EchoNestAPIError:
+      print 'Error extracting track profile: %s' % playlist_tracks[i]
       pass
 
     try:
