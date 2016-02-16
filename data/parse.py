@@ -1,8 +1,7 @@
-# CSE 481I: Sound Capstone
+# CSE 481I - Sound Capstone wi16
 # Conducere (TM)
 
-# This file provides parsing functions for echonest 
-# music analysis data files. 
+# Parsing functions for echonest music analysis data files. 
 
 
 # To modify which attributes are evaluated during 

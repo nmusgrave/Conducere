@@ -1,18 +1,19 @@
-# CSE 481I - Sound Capstone
+# CSE 481I - Sound Capstone wi16
 # Conducere (TM)
 
-# This file contains logic for data collection through the Spotify
-# API. 
+# Data collection through the Spotify API. 
 
 import spotipy
 import spotipy.util as util
 
+# ==========================================
 # TODO: Make sure the following environment variables are set
 #       appropriately before trying to run.
 #
 #       SPOTIPY_CLIENT_ID
 #       SPOTIPY_CLIENT_SECRET
 #       SPOTIPY_REDIRECT_URI
+# ==========================================
 
  
 def get_playlist_tracks(sp, username, pl_id):

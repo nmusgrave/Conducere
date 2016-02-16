@@ -1,4 +1,4 @@
-# CSE 481I - Sound Capstone
+# CSE 481I - Sound Capstone wi16
 # Conducere (TM)
 
 # This file contains logic for data collection through the Echonest

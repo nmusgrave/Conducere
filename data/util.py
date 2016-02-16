@@ -1,8 +1,7 @@
-# CSE 481I: Sound Capstone
+# CSE 481I - Sound Capstone wi16
 # Conducere (TM)
-#
-# This file holds utility data/functions for 
-# data collection and analysis
+
+# Utility data/functions for data collection and analysis
 
 
 # List of relevant attributes

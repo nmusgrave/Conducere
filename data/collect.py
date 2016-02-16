@@ -1,3 +1,6 @@
+# CSE 481I - Sound Capstone wi16
+# Conducere (TM)
+
 import sys
 from spotify import collect_playlist_data
 from echonest import get_playlist_track_analysis
