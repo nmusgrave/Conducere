@@ -1,0 +1,20 @@
+Poster
+Things to include:
+Our team name
+Sentence or two about what we're doing (abstract)
+Describe the three models that we're using
+Include the name of the model
+show the results from them- perhaps in a visual manner such as a graph
+Method
+Which model was the best? Percent of correctness
+Conclusion
+Were we able to determine music taste
+which features were important in determining music taste
+
+Info to include on models:
+Features that were the most important to determining music taste, like 
+danceability as originally found by the clustering model.
+Graphs would be very nice to include. It would be easy to include the graphs on
+the overall data- show the variations of some features. Maybe even include a
+few songs and artists to show how the features change. There may be more
+interesting graphs to show however, depending on what we find from the models.
