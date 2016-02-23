@@ -58,5 +58,8 @@ which prints comma-separated data to standard out (redirect to filepath, if desi
 | Mallika Potter  | 1246241522    | feminist pop   | 1VnkZa21CrQBG9EGA4Lpxl |
 | Becca Saunders  | 1257552049    |                |                        |
 | Punya Jain      | 1215184557    |                |                        |
+| Svetlana Grabar | svetlanag     | Calm           | 30ICfBesEb5uvrhfyfI6DU |
+| Svetlana Grabar | svetlanag     | Upbeat         | 2QdiJzfIFh2UZnItHeB3DS |
+| Svetlana Grabar | svetlanag     | Happy          | 5uhT2QnPCcwT4oq0KILy76 |
 
 
