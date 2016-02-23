@@ -45,6 +45,20 @@ python parse.py
 
 which prints comma-separated data to standard out (redirect to filepath, if desired)
 
+## Echonest
+
+The API extracts the following features for each track
+
+* danceability      [0 - 1]
+* energy            [0 - 1]
+* liveness          [0 - 1]
+* loudness          [-100 - 100] decibels
+* speechiness       [0 - 1]
+* tempo             [0 - 500] BPM
+* valence           []
+* instrumentalness  []
+* acousticness      [0 - 1]
+
 ## Data Sources
 
 | user name       | user id       | playlist name  | playlist id            |
