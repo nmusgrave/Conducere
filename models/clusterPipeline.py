@@ -10,13 +10,17 @@ import sys
 import numpy as np
 from sklearn.cluster import KMeans
 import math
+from sklearn.pipeline import make_pipeline
+from sklearn.pipeline import make_union
+from sklearn.decomposition import PCA
+from sklearn.cluster import MeanShift, estimate_bandwidth
 
 # The number of clusters should be this * number of y values
-CLUSTER_FACTOR = 4
+CLUSTER_FACTOR = 3
 
 # Gives the usage of this program
 def usage():
-  print "Usage: python run.py cluster [iterations] [data_file] [features to use...]"
+  print "Usage: python run.py clusterPipeline [iterations] [data_file]"
 
 # Executes a model for clustering data. Treats the first feature as the dependent
 # feature.
@@ -31,17 +35,21 @@ def execute(args):
     usage()
     sys.exit()
   names, y, x = parse(args[0])
-  indices = [int(i) for i in args[1:]]
   relevant_names = names
-  if len(indices) > 0:
-    x = [[sample[i] for i in indices] for sample in x]
-    relevant_names = [names[i] for i in indices]
   print "Clustering on", str(relevant_names) + "..."
 
   labels = np.unique(y)
   kmeans = KMeans(n_clusters= CLUSTER_FACTOR * len(labels), random_state=0)
-  y_pred = kmeans.fit_predict(x)
+  bandwidth = estimate_bandwidth(x, quantile=0.2, n_samples=len(x))
+  ms = MeanShift(bandwidth=bandwidth, bin_seeding=False)
+  kmeansPipeline = make_pipeline(PCA(copy=True, n_components=None,
+        whiten=False), kmeans)
+  msPipeline = make_pipeline(PCA(copy=True, n_components=None,
+        whiten=False), ms)
+  union = make_union(kmeansPipeline, msPipeline)
 
+  y_pred = union.fit_predict(x)
+  
   counts = get_cluster_counts(y, y_pred)
   totals = [0] * len(counts)
   print counts

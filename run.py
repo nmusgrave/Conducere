@@ -23,6 +23,7 @@ try:
   problem = getattr(problem_file, "execute")
   for i in range(int(sys.argv[2])):
     problem(sys.argv[3:])
-except AttributeError:
+except AttributeError as a:
   print "Error: no module/method found for", sys.argv[1]
+  print a
   sys.exit()
