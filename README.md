@@ -45,6 +45,20 @@ python parse.py
 
 which prints comma-separated data to standard out (redirect to filepath, if desired)
 
+## Echonest
+
+The API extracts the following features for each track
+
+* danceability      [0 - 1]
+* energy            [0 - 1]
+* liveness          [0 - 1]
+* loudness          [-100 - 100] decibels
+* speechiness       [0 - 1]
+* tempo             [0 - 500] BPM
+* valence           []
+* instrumentalness  []
+* acousticness      [0 - 1]
+
 ## Data Sources
 
 | user name       | user id       | playlist name  | playlist id            |
@@ -58,5 +72,8 @@ which prints comma-separated data to standard out (redirect to filepath, if desi
 | Mallika Potter  | 1246241522    | feminist pop   | 1VnkZa21CrQBG9EGA4Lpxl |
 | Becca Saunders  | 1257552049    |                |                        |
 | Punya Jain      | 1215184557    |                |                        |
+| Svetlana Grabar | svetlanag     | Calm           | 30ICfBesEb5uvrhfyfI6DU |
+| Svetlana Grabar | svetlanag     | Upbeat         | 2QdiJzfIFh2UZnItHeB3DS |
+| Svetlana Grabar | svetlanag     | Happy          | 5uhT2QnPCcwT4oq0KILy76 |
 
 
