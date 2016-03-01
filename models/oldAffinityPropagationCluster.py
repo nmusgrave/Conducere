@@ -1,62 +1,55 @@
-#!/usr/bin/python
-
-# CSE 481I - Sound Capstone wi16
-# Conducere (TM)
-
-# Clustering
-
-import sys
-
 import numpy as np
-from sklearn.cluster import KMeans
+
+from sklearn.cluster import AffinityPropagation
 from sklearn import metrics
-import math
+from sklearn.datasets.samples_generator import make_blobs
+from sklearn.decomposition import PCA
+from sklearn.pipeline import make_pipeline
 
-# The number of clusters should be this * number of y values
-CLUSTER_FACTOR = 3
-
-# Gives the usage of this program
 def usage():
   print "Usage: python run.py kMeansCluster [iterations] [data_file] [features to use...]"
 
-# Executes a model for clustering data. Treats the first feature as the dependent
-# feature.
-#
-# For arguments, takes the data file, and an optional list of features to use. If
-# no list is given, will use all features. Outputs a map of each cluster, in the
-# form of majority playlist and the percentage of the cluster belonging to that
-# playlist.
 def execute(args):
-  np.random.seed(42)
+  ##############################################################################
   if len(args) < 1:
     usage()
     sys.exit()
-  names, y, x = parse(args[0])
+
+  names, labels_true, X = parse(args[0])
   indices = [int(i) for i in args[1:]]
   relevant_names = names[1:]
   if len(indices) > 0:
-    x = [[sample[i] for i in indices] for sample in x]
+    X = np.asarray([[sample[i] for i in indices] for sample in X])
     relevant_names = [relevant_names[i] for i in indices]
   print "Clustering on", str(relevant_names) + "..."
 
-  labels = np.unique(y)
-  kmeans = KMeans(n_clusters= CLUSTER_FACTOR * len(labels), random_state=0)
-  y_pred = kmeans.fit_predict(x)
+  
+  ##############################################################################
+  # Compute Affinity Propagation
+  af = AffinityPropagation(preference=-50)
+  # cluster_centers_indices = af.cluster_centers_indices_
+  # labels = af.labels_
+  # 
+  # n_clusters_ = len(cluster_centers_indices)
 
-  counts = get_cluster_counts(y, y_pred)
-  totals = [0] * len(counts)
+  y_pred = af.fit_predict(X)
+  if y_pred is None or len(y_pred) is 0 or type(y_pred[0]) is np.ndarray:
+    return 0
+  counts = get_cluster_counts(labels_true, y_pred)
   print counts
-  for i, mapping in counts.iteritems():
-    totals[i] = sum(mapping.values())
-  finals = get_final_mapping(counts, totals)
-  if len(finals) < len(labels):
-    print "WARNING: Not all clusters unique!"
-  print "FINAL CLUSTERS", finals
-  print
-  print "ACCURACY", accuracy(finals, labels)
-  return accuracy(finals, labels)
-
-
+  
+  # print('Estimated number of clusters: %d' % n_clusters_)
+  # print("Homogeneity: %0.3f" % metrics.homogeneity_score(labels_true, labels))
+  # print("Completeness: %0.3f" % metrics.completeness_score(labels_true, labels))
+  # print("V-measure: %0.3f" % metrics.v_measure_score(labels_true, labels))
+  # print("Adjusted Rand Index: %0.3f"
+  #     % metrics.adjusted_rand_score(labels_true, labels))
+  # print("Adjusted Mutual Information: %0.3f"
+  #     % metrics.adjusted_mutual_info_score(labels_true, labels))
+  # print("Silhouette Coefficient: %0.3f"
+  #     % metrics.silhouette_score(X, labels, metric='sqeuclidean'))
+  # return metrics.silhouette_score(X, labels, metric='sqeuclidean')
+  
 # Parses the given file into a matrix of data. The depenedent variable is assumed
 # to be at the beginning
 def parse(filename):

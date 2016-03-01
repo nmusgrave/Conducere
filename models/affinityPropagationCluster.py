@@ -8,12 +8,11 @@
 import sys
 
 import numpy as np
-from sklearn.cluster import KMeans
+from sklearn.cluster import AffinityPropagation
 from sklearn import metrics
 import math
 
 # The number of clusters should be this * number of y values
-CLUSTER_FACTOR = 3
 
 # Gives the usage of this program
 def usage():
@@ -35,26 +34,31 @@ def execute(args):
   indices = [int(i) for i in args[1:]]
   relevant_names = names[1:]
   if len(indices) > 0:
-    x = [[sample[i] for i in indices] for sample in x]
+    x = np.asarray([[sample[i] for i in indices] for sample in x])
     relevant_names = [relevant_names[i] for i in indices]
   print "Clustering on", str(relevant_names) + "..."
 
   labels = np.unique(y)
-  kmeans = KMeans(n_clusters= CLUSTER_FACTOR * len(labels), random_state=0)
-  y_pred = kmeans.fit_predict(x)
+  af = AffinityPropagation(damping=0.6)
+  y_pred = af.fit_predict(x)
+  un = np.unique(y_pred)
 
   counts = get_cluster_counts(y, y_pred)
-  totals = [0] * len(counts)
+  totals = {}
   print counts
   for i, mapping in counts.iteritems():
-    totals[i] = sum(mapping.values())
+    s = sum(mapping.values())
+    if s != 0:
+      totals[i] = sum(mapping.values())
   finals = get_final_mapping(counts, totals)
   if len(finals) < len(labels):
-    print "WARNING: Not all clusters unique!"
+    print "WARNING: Not all labels accounted for!"
   print "FINAL CLUSTERS", finals
+  print "NUM CLUSTERS", len(counts)
+  print "NUM Y_PRED", len([y for y in y_pred if type(y) is not np.ndarray])
   print
   print "ACCURACY", accuracy(finals, labels)
-  return accuracy(finals, labels)
+  return accuracy(finals, labels), len(counts)
 
 
 # Parses the given file into a matrix of data. The depenedent variable is assumed
@@ -80,7 +84,8 @@ def get_cluster_counts(y, y_pred):
   labels = np.unique(y)
   counts = {un : {label : 0 for label in labels} for un in unique}
   for i in range(len(y)):
-    counts[y_pred[i]][y[i]] += 1
+    if type(y_pred[i]) is not np.ndarray:
+      counts[y_pred[i]][y[i]] += 1
   return counts
 
 # Returns the final mapping, which is a decided playlist and a percentage of that cluster
@@ -108,5 +113,5 @@ def accuracy(final, labels):
         accuracy[dataName][0] += dataValue
       else:
         accuracy[dataName][1] += dataValue
-  final_accuracy = {name : value[0] / float(sum(value)) for name, value in accuracy.iteritems()}
+  final_accuracy = {name : (value[0] / float(sum(value))) if sum(value) != 0 else 0 for name, value in accuracy.iteritems()}
   return final_accuracy
