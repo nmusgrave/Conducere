@@ -8,125 +8,91 @@
 # Input data should either be binary, or real-valued between 0 and 1 signifying
 # the probability that the visible unit would turn on or off
 
-
-import numpy as np
-
-from sklearn import linear_model, metrics
+from sklearn import linear_model
+from sklearn.metrics import precision_recall_curve, average_precision_score
 from sklearn.cross_validation import train_test_split
 from sklearn.neural_network import BernoulliRBM
 from sklearn.pipeline import Pipeline
-from sklearn.preprocessing import StandardScaler
+from sklearn.preprocessing import StandardScaler, MinMaxScaler, MaxAbsScaler
 
-
-###############################################################################
-# Setting up
-# Construct feature vectors from each song's echonest analysis.
-# The dependent variable is assumed to be at the beginning
-def parse(filename):
-  raw = [[feature for feature in line.strip().split(',')] for line in open(filename, 'r')]
-  names = raw[0]
-  raw = raw[1:]
-  np.random.shuffle(raw)
-  dependent = [sample[0] for sample in raw]
-  independent = [sample[1:] for sample in raw]
-  independent = [[abs(float(sample_point)) for sample_point in sample] for sample in independent]
-  return names, dependent, np.asarray(independent)
-
+from util import parse, clean, selectFeatures, evaluate, powerset
+import copy
 
 ###############################################################################
-# Evaluation
-def evaluate(classifier, logistic_classifier, x_test, y_test):
-  print()
-  print("Logistic regression using RBM features:\n%s\n" % (
-    metrics.classification_report(
-        y_test,
-        classifier.predict(x_test))))
+# Parameters for training
+# The best parameters are {'logistic__C': 100, 'rbm__n_iter': 1,
+# 'rbm__learning_rate': 0.001, 'rbm__n_components': 300} with a score of 0.30
 
-  print("Logistic regression using raw pixel features:\n%s\n" % (
-    metrics.classification_report(
-        y_test,
-        logistic_classifier.predict(x_test))))
-
-
-###############################################################################
-# Feature Selection
-# all       all features
-# target    desired features
-# x         data set
-def selectFeatures(all, target, x):
-  arr = np.array(x)
-  remove = set(all) - set(target)
-  for f in remove:
-    # determine index for feature
-    i = all.index(f)
-    del all[i]
-    arr = np.delete(arr, i, 1)
-  return arr
-  
+# Logistic regression features
+L_COMPONENTS=100
+# Neural network features
+# More components tend to give better prediction performance, but larger
+# fitting time
+N_LEARNING_RATE = 0.001
+N_ITER=10
+N_COMPONENTS=300
 
 ###############################################################################
 # Invocation
 
 # Gives the usage of this program
+# Iterations should be 1, since best number of iterations for the model are found via grid search
 def usage():
-  print "Usage: python run.py ann [iterations] [data_file] [features]"
+  print "Usage: python run.py ann [iterations] [data_file] [features] (note: iterations should be 1)"
 
 # Command line arguments: data file
 def execute(args):
+  print 'Starting the artificial neural network'
   if len(args) < 1:
     usage()
     sys.exit()
+
+  ###############################################################################
+  # Data
 
   # names     feature labels
   # y         shuffled names
   # x         features that correspond to shuffled names
   names, y, x = parse(args[0])
-  # remove user_id column
-  names = names[1:]
+  x = clean(names, x)
 
   # Build features to include in test
   features = args[1:]
   if len(features) == 0:
     features = names
+  print 'Selected features:', features
+  combos = powerset(features)
+  for c in combos:
+    if len(c) == 0:
+      continue
+    print 'Attempting feature set:', c
+    x_selected = selectFeatures(copy.copy(names), c, x)
 
-  print 'Testing on features:', features
+    # Split into testing and traiing data
+    x_train, x_test, y_train, y_test = train_test_split(x_selected, y,
+                                                      test_size=0.2,
+                                                      random_state=0)
 
-  x = selectFeatures(names, features, x)
+    ###############################################################################
+    # Models
 
-  # Split into testing and traiing data
-  x_train, x_test, y_train, y_test = train_test_split(x, y,
-                                                    test_size=0.2,
-                                                    random_state=0)
+    logistic = linear_model.LogisticRegression(C=L_COMPONENTS)
+    rbm = BernoulliRBM(random_state=0, verbose=True, learning_rate=N_LEARNING_RATE, n_iter=N_ITER, n_components=N_COMPONENTS)
 
-  ###############################################################################
-  # Models
-  # TODO: explore best params using cross-validation (GridSearchCV)
-  # More components tend to give better prediction performance, but larger
-  # fitting time
-  logistic = linear_model.LogisticRegression(C=6000.0)
-  rbm = BernoulliRBM(random_state=0, verbose=True, learning_rate=0.006, n_iter=50, n_components=300)
+    # Note: attempted StandardScaler, MinMaxScaler, MaxAbsScaler, without strong results
+    # Not needed, since data is scaled to the [0-1] range by clean()
+    classifier = Pipeline(steps=[('rbm', rbm),('logistic', logistic)])
 
-  # note: sometimes undefinedmetricwarning appears for bad data
-  # this shows up occasionally regardless of preprocessing step
-  # others: ('min/max scaler', MinMaxScaler()), ('maxabs scaler', MaxAbsScaler())
-  classifier = Pipeline(steps=[
-    ('standard scaler', StandardScaler()),        # best results so far
-    ('rbm', rbm),
-    ('logistic', logistic)
-  ])
+    # ###############################################################################
+    # Training
+    print 'Training the classifier...'
+    # Training RBM-Logistic Pipeline
+    classifier.fit(x_train, y_train)
 
-  # ###############################################################################
-  # Training
+    # Training Logistic regression
+    logistic_classifier = linear_model.LogisticRegression(C=100.0)
+    logistic_classifier.fit(x_train, y_train)
 
-  # Training RBM-Logistic Pipeline
-  classifier.fit(x_train, y_train)
-
-  # Training Logistic regression
-  logistic_classifier = linear_model.LogisticRegression(C=100.0)
-  logistic_classifier.fit(x_train, y_train)
-
-  ###############################################################################
-  # Evaluation
-
-  evaluate(classifier, logistic_classifier, x_test, y_test)
-
+    ###############################################################################
+    # Evaluation
+    evaluate(classifier, logistic_classifier, x_test, y_test)
