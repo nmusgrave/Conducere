@@ -61,19 +61,22 @@ The API extracts the following features for each track
 
 ## Data Sources
 
-| user name       | user id       | playlist name  | playlist id            |
-|-----------------|---------------|----------------|------------------------|
-| Naomi Musgrave  | naomimusgrave | Conducere      | 5PncMLe2hgXNShCMjTczcJ |
-| Megan Hopp      | mlhopp        | conducere      | 7g45qlGsYfZSxIAioYBD8N |
-| Connor Moore    | 1260365679    | Capstone       | 1FRHfvYqQBnZfWwZ0aXHFB |
-| Svetlana Grabar |               |                |                        |
-| Vincent Chan    | 1257662670    | quiet yearning | 1nmlQhiuMGBxOGtH8fz3D2 |
-| Mallika Potter  | 1246241522    | vaguely indie  | 3xuiTGv241bH8BER0U9ANo |
-| Mallika Potter  | 1246241522    | feminist pop   | 1VnkZa21CrQBG9EGA4Lpxl |
-| Becca Saunders  | 1257552049    |                |                        |
-| Punya Jain      | 1215184557    |                |                        |
-| Svetlana Grabar | svetlanag     | Calm           | 30ICfBesEb5uvrhfyfI6DU |
-| Svetlana Grabar | svetlanag     | Upbeat         | 2QdiJzfIFh2UZnItHeB3DS |
-| Svetlana Grabar | svetlanag     | Happy          | 5uhT2QnPCcwT4oq0KILy76 |
+| user name       | user id       | playlist name      | playlist id            |
+|-----------------|---------------|--------------------|------------------------|
+| Naomi Musgrave  | naomimusgrave | Conducere          | 5PncMLe2hgXNShCMjTczcJ |
+| Megan Hopp      | mlhopp        | conducere          | 7g45qlGsYfZSxIAioYBD8N |
+| Connor Moore    | 1260365679    | Capstone           | 1FRHfvYqQBnZfWwZ0aXHFB |
+| Svetlana Grabar |               |                    |                        |
+| Vincent Chan    | 1257662670    | quiet yearning     | 1nmlQhiuMGBxOGtH8fz3D2 |
+| Mallika Potter  | 1246241522    | vaguely indie      | 3xuiTGv241bH8BER0U9ANo |
+| Mallika Potter  | 1246241522    | feminist pop       | 1VnkZa21CrQBG9EGA4Lpxl |
+| Becca Saunders  | 1257552049    |                    |                        |
+| Punya Jain      | 1215184557    |                    |                        |
+| Svetlana Grabar | svetlanag     | Calm               | 30ICfBesEb5uvrhfyfI6DU |
+| Svetlana Grabar | svetlanag     | Upbeat             | 2QdiJzfIFh2UZnItHeB3DS |
+| Svetlana Grabar | svetlanag     | Happy              | 5uhT2QnPCcwT4oq0KILy76 |
+| Sana Nagar      | sana          | Emerald City Vibes | 5S7yyHr7zCU3liLN9ina7x |
+| Scott Shively   | scottshively  | HC                 | 475nZAiQKPmGsrpInmWcUv |
+| Corne Strootman | corne         | CrD'A              | 4x7OoNFxGu4RkCwvQkgMys |
 
 
