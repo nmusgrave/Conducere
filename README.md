@@ -61,15 +61,15 @@ The API extracts the following features for each track
 
 ## Data Sources
 
-| user name       | user id       | playlist name  | playlist id            |
-|-----------------|---------------|----------------|------------------------|
+| user name       | user id       | playlist name  | playlist id            | playlist length
+|-----------------|---------------|----------------|------------------------|-----------------
 | Naomi Musgrave  | naomimusgrave | Conducere      | 5PncMLe2hgXNShCMjTczcJ |
 | Megan Hopp      | mlhopp        | conducere      | 7g45qlGsYfZSxIAioYBD8N |
 | Connor Moore    | 1260365679    | Capstone       | 1FRHfvYqQBnZfWwZ0aXHFB |
 | Svetlana Grabar |               |                |                        |
 | Vincent Chan    | 1257662670    | quiet yearning | 1nmlQhiuMGBxOGtH8fz3D2 |
-| Mallika Potter  | 1246241522    | vaguely indie  | 3xuiTGv241bH8BER0U9ANo |
-| Mallika Potter  | 1246241522    | feminist pop   | 1VnkZa21CrQBG9EGA4Lpxl |
+| Mallika Potter  | 1246241522    | vaguely indie  | 3xuiTGv241bH8BER0U9ANo | 185
+| Mallika Potter  | 1246241522    | feminist pop   | 1VnkZa21CrQBG9EGA4Lpxl | 111
 | Becca Saunders  | 1257552049    |                |                        |
 | Punya Jain      | 1215184557    |                |                        |
 | Svetlana Grabar | svetlanag     | Calm           | 30ICfBesEb5uvrhfyfI6DU |
