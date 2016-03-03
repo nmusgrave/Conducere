@@ -29,13 +29,9 @@ def clean(features, x):
 
 ###############################################################################
 # Evaluation
-def evaluate(classifier, logistic_classifier, x_test, y_test):
+def evaluate(classifier, x_test, y_test):
   results = metrics.classification_report(y_test, classifier.predict(x_test))
   print("Logistic regression using RBM features:\n%s\n" % (results))
-  print("Logistic regression using raw song features:\n%s\n" % (
-    metrics.classification_report(
-        y_test,
-        logistic_classifier.predict(x_test))))
   return results
 
 

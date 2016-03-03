@@ -8,6 +8,9 @@
 # Input data should either be binary, or real-valued between 0 and 1 signifying
 # the probability that the visible unit would turn on or off
 
+import sys
+from collections import defaultdict, Counter
+
 from sklearn import linear_model
 from sklearn.metrics import precision_recall_curve, average_precision_score
 from sklearn.cross_validation import train_test_split
@@ -23,6 +26,8 @@ import copy
 # The best parameters are {'logistic__C': 100, 'rbm__n_iter': 1,
 # 'rbm__learning_rate': 0.001, 'rbm__n_components': 300} with a score of 0.30
 
+# The best features so far are: ['danceability', 'energy', 'instrumentalness', 'acousticness']
+
 # Logistic regression features
 L_COMPONENTS=100
 # Neural network features
@@ -37,13 +42,18 @@ N_COMPONENTS=300
 
 # Gives the usage of this program
 # Iterations should be 1, since best number of iterations for the model are found via grid search
+# Use powerset, to examine a powerset of all features specified
+# Can
 def usage():
-  print "Usage: python run.py ann [iterations] [data_file] [features] (note: iterations should be 1)"
+  print "Usage: python run.py ann [int iterations] [bool use powerset] [data_file] [features]"
+  print "(required) Iterations should be 1, since best number of iterations for the model are found via grid search"
+  print "(required) Enable the powerset, to run the model on all possible subsets of the features"
+  print "(optional) List no features, to run with all features"
 
 # Command line arguments: data file
 def execute(args):
   print 'Starting the artificial neural network'
-  if len(args) < 1:
+  if len(args) < 2:
     usage()
     sys.exit()
 
@@ -53,15 +63,27 @@ def execute(args):
   # names     feature labels
   # y         shuffled names
   # x         features that correspond to shuffled names
-  names, y, x = parse(args[0])
+  names, y, x = parse(args[1])
   x = clean(names, x)
+  usePowerset = args[0]
 
   # Build features to include in test
-  features = args[1:]
+  features = args[2:]
+  print features
   if len(features) == 0:
     features = names
   print 'Selected features:', features
-  combos = powerset(features)
+
+  # Build all subsets of features, if requested
+  if usePowerset.lower() == 'true':
+    combos = powerset(features)
+  else:
+    combos = [features]
+
+  # map from feature set, to map of correct counts for each person
+  feature_performance = {}
+  highest_correct = 0
+  best_combo = {}
   for c in combos:
     if len(c) == 0:
       continue
@@ -88,11 +110,32 @@ def execute(args):
     print 'Training the classifier...'
     # Training RBM-Logistic Pipeline
     classifier.fit(x_train, y_train)
-
-    # Training Logistic regression
-    logistic_classifier = linear_model.LogisticRegression(C=100.0)
-    logistic_classifier.fit(x_train, y_train)
+    correct = 0
+    label_counts = defaultdict(int)
+    for i in range(len(x_test)):
+      test = x_test[i]
+      if len(test) == 1:
+        test = test.reshape(-1, 1)
+      else:
+        test = [test]
+      predicted = classifier.predict(test)
+      if predicted == y_test[i]:
+        correct += 1
+        label_counts[predicted[0]] += 1
+    if correct >= highest_correct:
+      highest_correct = correct
+      best_combo = c
+    feature_performance[str(c)] = {'predictions':label_counts,'expected':Counter(y_test)}
 
     ###############################################################################
     # Evaluation
-    evaluate(classifier, logistic_classifier, x_test, y_test)
+    evaluate(classifier, x_test, y_test)
+
+  print 'Most number correct:\t', highest_correct
+  print 'Best feature set:\t', best_combo
+  summary = feature_performance[str(best_combo)]
+  print 'Identified %d out of %d labels'%(len(summary['predictions']),len(summary['expected']))
+  for p in summary['predictions']:
+    pred = summary['predictions'][p]
+    tot = summary['expected'][p]
+    print '\t %s \t %d \t of %d \t (%f)'%(p, pred, tot, pred * 1.0/tot)
