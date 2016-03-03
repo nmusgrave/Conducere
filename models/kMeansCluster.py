@@ -14,7 +14,7 @@ import math
 from util import clean
 
 # The number of clusters should be this * number of y values
-CLUSTER_FACTOR = 3
+CLUSTER_FACTOR = 4
 
 # Gives the usage of this program
 def usage():
@@ -55,6 +55,7 @@ def execute(args):
     print "WARNING: Not all clusters unique!"
   print "FINAL CLUSTERS", finals
   print
+  print "NUM LABELS", len(labels)
   print "ACCURACY", accuracy(finals, labels)
   return accuracy(finals, labels)
 

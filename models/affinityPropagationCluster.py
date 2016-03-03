@@ -41,8 +41,10 @@ def execute(args):
   print "Clustering on", str(relevant_names) + "..."
 
   labels = np.unique(y)
-  af = AffinityPropagation(damping=0.55)
-  y_pred = af.fit_predict(x)
+  af = AffinityPropagation(damping=0.65)
+  x_train = random_selection(x, int(len(x) * 0.6))
+  af.fit(x_train)
+  y_pred = af.predict(x)
   un = np.unique(y_pred)
 
   counts = get_cluster_counts(y, y_pred)
@@ -117,3 +119,10 @@ def accuracy(final, labels):
         accuracy[dataName][1] += dataValue
   final_accuracy = {name : (value[0] / float(sum(value))) if sum(value) != 0 else 0 for name, value in accuracy.iteritems()}
   return final_accuracy
+
+# Returns an array of size num_samples, that is a random selection from x
+# without replacement
+def random_selection(x, num_samples):
+  selector = [i for i in range(len(x))]
+  selection = np.random.choice(a=selector, size=len(x / 2), replace=False)
+  return[x[i] for i in selection]
