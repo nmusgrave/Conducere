@@ -11,6 +11,7 @@ import numpy as np
 from sklearn.cluster import KMeans
 from sklearn import metrics
 import math
+from util import clean
 
 # The number of clusters should be this * number of y values
 CLUSTER_FACTOR = 3
@@ -34,6 +35,7 @@ def execute(args):
   names, y, x = parse(args[0])
   indices = [int(i) for i in args[1:]]
   relevant_names = names[1:]
+  x = clean(relevant_names, x)
   if len(indices) > 0:
     x = [[sample[i] for i in indices] for sample in x]
     relevant_names = [relevant_names[i] for i in indices]
