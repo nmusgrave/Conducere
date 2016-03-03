@@ -41,7 +41,7 @@ def execute(args):
   print "Clustering on", str(relevant_names) + "..."
 
   labels = np.unique(y)
-  af = AffinityPropagation(damping=0.65)
+  af = AffinityPropagation(damping=0.52)
   x_train = random_selection(x, int(len(x) * 0.6))
   af.fit(x_train)
   y_pred = af.predict(x)
