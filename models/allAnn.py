@@ -26,7 +26,7 @@ from util import parse, clean, selectFeatures
 rbm_learning = np.logspace(-3, 0, 10)
 rbm_iter = range(1, 51, 10)
 rbm_components = [10, 50, 100, 300]
-log_C = [10, 40, 60, 100]
+log_C = [1, 10, 40, 60, 100]
 param_grid = dict(rbm__learning_rate=rbm_learning, rbm__n_iter=rbm_iter,
     rbm__n_components=rbm_components, logistic__C=log_C)
 

@@ -21,53 +21,64 @@ On the training subset of song vectors:
 
 On the testing subset of song vectors:
 
-+ Predict the user associated with the song, and examine the accuracy
++ Predict the user associated with the song
++ Calculate the accuracy of predictions
 
-## Parameter tuning
-Explore all possible combinations of features in a space
+## Parameter Tuning
 
-rbm_learning = np.logspace(-3, 0, 10)
+In order to find the best combination of parameters for the RBM and logistic regression models, we performed a search over all possible combinations. The search operated over the following parameter sets, using all features in the data:
 
-+ Learning rate for weight updates
-+ 10 values in the range 10^-3 to 1
-+ Smaller values for slower learning
+### Artificial Neural Network
 
-rbm_iter = range(1, 51, 10)
++ Learning rate
+   Determines how quickly the node weights are updated. Too fast, and the model may over-fit (a major risk since some data sets are very small). Too slow, and the neural network is too unintelligent. We explored values in the space 10e-3 to 1.
++ Iterations
+   The number of iterations is another risk for overfitting, in particular with too many passes over the network. We explored values in the space of 1 to 51 iterations.
++ Components
+   The number of binary hidden components in the model is correlated to the complexity of the feature space the network can be trained to describe. We explored 10 to 300 components.
 
-+ Train for 1, 11, 21, …, 51 iterations
-+ At risk for over-fitting with more iterations
+### Logistic Regression
 
-rbm_components = [10, 50, 100, 300]
++ Components
 
-+ Number of binary hidden components
++ Regularization
+   For the model, C determined the inverse of the regularization strength, with smaller values giving stronger regularization. Regularization is another parameter that helps prevent overfitting. We explored values in the space 1 to 100.
 
-log_C = [10, 40, 60, 100]
+## Feature Selection
 
-+ Smaller values gives stronger regularization
-+ Regularization helps prevent overfitting (esp. Necessary since the data set for each user is small)
+The model was trained over a power set of all features, to determine the combination giving the best results. This training occured using the parameters found above.
 
-## Feature performance
-Trained on power set of all features, using best parameters found above
+For reference, the data set used had 7 labels, giving a 14.28% chance of random guessing succeeding.
+
+Parameters           {RBM learning rate,     RBM iterations,   RBM components,   logistic regularization}
+Parameters           {0.0046415888336127772, 21,               300,              100}
+Features             danceability energy liveness loudness speechiness acousticness
+Avg. Accuracy        19.857%
+
+
+Parameters           {0.001,                 1,                300,              100}
+Features             liveness valence instrumentalness acousticness
+Avg. Accuracy        18.5%
+
 
 ## Results
 
-+ Performed v poorly on small sample sets
-+ Performed best on larger sets
-+ Performed even better on sets with v similar genres (Mallika’s playlists) 
-Data: vector of song features, and an associated user profile. Forms collections of playlists describing user listening habits. Each user has a varying distribution of song varieties. Some have songs tightly grouped within a genre (reference graph- Mallika), and others have a broader distribution of genres (reference graph- hunter?)
+Initially, the model was trained on the full collection of data. There was a huge variance in number of songs for each user, and the neural network performed poorly when extracting a feature set. The model never correctly guessed the labels of users with very few songs. Some users had very large playlists with songs tightly falling within a particular genre or mood; the model would almost always correctly identify songs associated with these individuals.
 
+When restricting the input data to 100 songs from each user, the model performed slightly better than random guessing. This improvement was seen across the board, with the model now able to identify more individuals, and more songs belonging to each individual.
+
+This performance aligns with existing research that uses neural networks to identify song genre and mood. Futhermore, it implies that the model can be used to identify the features describing a user's listening tastes, soley from their prior habits.
 
 ## References
 
-[Scikit-learn on digit classification, using rbm & logistic regression](http://www.pyimagesearch.com/2014/06/23/applying-deep-learning-rbm-mnist-using-python/)
-
-[Rbm info](http://deeplearning.net/tutorial/rbm.html)
-[Logistic regression info](http://courses.washington.edu/css490/2012.Winter/lecture_slides/05b_logistic_regression.pdf)
-[Scikit-learn rbm API](http://scikit-learn.org/stable/modules/generated/sklearn.neural_network.BernoulliRBM.html)
-[Sckikit-learn rbm](http://scikit-learn.org/stable/modules/neural_networks.html#rbm)
-[Sckit-learn logistic regression API](http://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LogisticRegression.html)
-[Sckit-learn logistic regression](http://scikit-learn.org/stable/modules/linear_model.html#logistic-regression)
-[Regularization](https://cs.brown.edu/courses/archive/2006-2007/cs195-5/lectures/lecture13.pdf)
++ [Scikit-learn on digit classification, using rbm & logistic regression](http://www.pyimagesearch.com/2014/06/23/applying-deep-learning-rbm-mnist-using-python/)
++ [Rbm info](http://deeplearning.net/tutorial/rbm.html)
++ [Logistic regression info](http://courses.washington.edu/css490/2012.Winter/lecture_slides/05b_logistic_regression.pdf)
++ [Scikit-learn rbm API](http://scikit-learn.org/stable/modules/generated/sklearn.neural_network.BernoulliRBM.html)
++ [Sckikit-learn rbm](http://scikit-learn.org/stable/modules/neural_networks.html#rbm)
++ [Sckit-learn logistic regression API](http://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LogisticRegression.html)
++ [Sckit-learn logistic regression](http://scikit-learn.org/stable/modules/linear_model.html#logistic-regression)
++ [Regularization](https://cs.brown.edu/courses/archive/2006-2007/cs195-5/lectures/lecture13.pdf)
 
 
 # Trial 1
@@ -82,8 +93,6 @@ L_COMPONENTS = 100
 N_LEARNING_RATE = 0.0046415888336127772
 N_ITER = 21
 N_COMPONENTS = 300
-With score of XXX
-
 ## features
 
 danceability energy liveness loudness speechiness acousticness

@@ -37,7 +37,7 @@ import copy
 # 34 correct
 
 # Logistic regression features
-L_COMPONENTS=100
+L_REGULARIZATION=100
 # Neural network features
 # More components tend to give better prediction performance, but larger
 # fitting time
@@ -108,7 +108,7 @@ def execute(args):
     ###############################################################################
     # Models
 
-    logistic = linear_model.LogisticRegression(C=L_COMPONENTS)
+    logistic = linear_model.LogisticRegression(C=L_REGULARIZATION)
     rbm = BernoulliRBM(random_state=0, verbose=True, learning_rate=N_LEARNING_RATE, n_iter=N_ITER, n_components=N_COMPONENTS)
 
     # Note: attempted StandardScaler, MinMaxScaler, MaxAbsScaler, without strong results
