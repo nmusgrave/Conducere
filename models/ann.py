@@ -11,7 +11,7 @@
 import sys
 from collections import defaultdict, Counter
 
-from sklearn import linear_model
+from sklearn import linear_model, metrics
 from sklearn.metrics import precision_recall_curve, average_precision_score
 from sklearn.cross_validation import train_test_split
 from sklearn.neural_network import BernoulliRBM
@@ -23,19 +23,28 @@ import copy
 
 ###############################################################################
 # Parameters for training
+# On data_2_19_16.txt:
 # The best parameters are {'logistic__C': 100, 'rbm__n_iter': 1,
 # 'rbm__learning_rate': 0.001, 'rbm__n_components': 300} with a score of 0.30
 
-# The best features so far are: ['danceability', 'energy', 'instrumentalness', 'acousticness']
+# On data_3_1_16.txt:
+# The best parameters are {'logistic__C': 100, 'rbm__n_iter': 21,
+# 'rbm__learning_rate': 0.0046415888336127772, 'rbm__n_components': 300} with a score of 0.22
+
+# The best features so far are: danceability energy instrumentalness acousticness
+
+
+# 34 correct
 
 # Logistic regression features
 L_COMPONENTS=100
 # Neural network features
 # More components tend to give better prediction performance, but larger
 # fitting time
-N_LEARNING_RATE = 0.001
-N_ITER=10
+N_LEARNING_RATE = 0.0046415888336127772
+N_ITER=21
 N_COMPONENTS=300
+
 
 ###############################################################################
 # Invocation
@@ -94,6 +103,7 @@ def execute(args):
     x_train, x_test, y_train, y_test = train_test_split(x_selected, y,
                                                       test_size=0.2,
                                                       random_state=0)
+    print len(x_train), len(x_test), len(y_train), len(y_test)
 
     ###############################################################################
     # Models
@@ -109,7 +119,7 @@ def execute(args):
     # Training
     print 'Training the classifier...'
     # Training RBM-Logistic Pipeline
-    classifier.fit(x_train, y_train)
+    classifier.fit(x_train,y_train)
     correct = 0
     label_counts = defaultdict(int)
     for i in range(len(x_test)):
@@ -119,9 +129,11 @@ def execute(args):
       else:
         test = [test]
       predicted = classifier.predict(test)
+
       if predicted == y_test[i]:
         correct += 1
         label_counts[predicted[0]] += 1
+
     if correct >= highest_correct:
       highest_correct = correct
       best_combo = c
@@ -131,9 +143,9 @@ def execute(args):
     # Evaluation
     evaluate(classifier, x_test, y_test)
 
-  print 'Most number correct:\t', highest_correct
-  print 'Best feature set:\t', best_combo
   summary = feature_performance[str(best_combo)]
+  print 'Accuracy:\t', highest_correct, 'correct gives', (highest_correct * 1.0/len(y_test)), 'compared to guessing', (1.0/len(summary['expected']))
+  print 'Best feature set:\t', best_combo
   print 'Identified %d out of %d labels'%(len(summary['predictions']),len(summary['expected']))
   for p in summary['predictions']:
     pred = summary['predictions'][p]
