@@ -1,18 +1,16 @@
 # Neural Network
 
-## Motivations for choosing model
+## Motivations for Model
 
-Goal: Explore if possible to identify traits of a user’s listening habits. Attempt to classify songs into categories that align with users.
+The goal is to determine if it is possible to identify a user's listening habits. If it is possible to do so, a neural network will be able to extract a feature set that describes the listening habits, and be able to correctly identify songs that align with individuals' tastes. At a high level, the model uses a combination of a neural network and classifier. The model is provided song data, presented as a vector of features, and an associated user profile. 
 
-Data: vector of song features, and an associated user profile. Forms collections of playlists describing user listening habits. Each user has a varying distribution of song varieties. Some have songs tightly grouped within a genre (reference graph- Mallika), and others have a broader distribution of genres (reference graph- hunter?)
+### Artificial Neural Network
 
-### Bernoulli Restricted Bolztmann Machine
-
-Uses stochastic maximum likelihood to estimate features. During training, aims to maximize product probabilities assigned to training set. Restricted Bolztmann Machine is an artificial neural network that learns probability distribution over a set of inputs. Can be trained as unsupervised or supervised, but this application is using it as unsupervised. Neurons form bipartite graph of visible and hidden nodes. No connections between hidden nodes, so hidden node activations are mutually independent of each other.
+In the first step, a Bernoulli Restricted Bolztmann Machine builds a feature space describing the training set of song vectors. It is an unsupervised model, so builds the feature space only from the song data, without any provided labels. During training, the RBM aims to maximize the product of probabilities assigned to the features it learns. The RBM constructs a bipartite graph of neurons to describe features. The parts are divided into hidden and visible nodes. Since this is a restricted Boltzmann Machine, there are no connections between hidden nodes. Therefore, node activations are mutually independent of each other. This is desirable in this case, since the given feature set is already dependent (for example, a song with high danceability is more likely to be highly energetic).
 
 ### Logistic Regression
 
-Classification. Favor/disfavor outcomes using log odds, rather than probabilities (since probabilities have even treatment of positive/negative outcomes). Used on multidimensional feature space. Discrete outcomes. Maps a point in d-dimensional feature space to value in range [0,1]. Useful for computing probability of class membership.
+Given the features learned by the neural network, a logistic regression function performs classification. It assigns labels to the song data. In general, logistic regression is useful for computing the probability of class membership. It maps a data point in a n-dimensional feature space to a value, which in turn maps to a label. Due to this behavior, logistic regression performs well on transforming a complex input set to a subset of labels. In particular, logistic regression favors and disfavors outcomes using log odds, rather than probabilities. Probalities treat positive and negative outcomes fairly, but we prefer to discount negative outcomes and reward positive.
 
 ### Steps
 
@@ -56,6 +54,8 @@ Trained on power set of all features, using best parameters found above
 + Performed v poorly on small sample sets
 + Performed best on larger sets
 + Performed even better on sets with v similar genres (Mallika’s playlists) 
+Data: vector of song features, and an associated user profile. Forms collections of playlists describing user listening habits. Each user has a varying distribution of song varieties. Some have songs tightly grouped within a genre (reference graph- Mallika), and others have a broader distribution of genres (reference graph- hunter?)
+
 
 ## References
 
