@@ -13,7 +13,7 @@ A random forest classifier is an ensemble learning method that fits a number of 
 
  Since the result was less than 0, the forest would classify this data as B.
 
- We used random forests for multi-class classification, but the underlying principle of weighted classification votes is the same. Typically, the more trees in your forest, the better. We tried different sizes of the forest, along with many different parameters for fine-tuning both the classifier and the features we used in predictions. Below are some average accuracies for various sizes of the forest, predicting over the full set of music features, with default settings. (For reference, this data had 11 labels, meaning a random guess would yield an average mean of 0.0909, or 9.09%):
+ We used random forests for multi-class classification, but the underlying principle of weighted classification votes is the same. Typically, the more trees in your forest, the better. We tried different sizes of the forest, along with many different parameters for fine-tuning both the classifier and the features we used in predictions. Below are some  average accuracies for various sizes of the forest, predicting over the full set of music features, with default settings. (For reference, this data had 11 labels, meaning a random guess would yield an average mean of 0.0909, or 9.09%):
 
 	Forest Size = 	1 
 	Accuracy:  		0.158027812895
@@ -50,7 +50,9 @@ However, the most interesting results came in an experiment of splitting the inp
 	Max Accuracy Reported for a Matching: 0.936508
 	Avg Accuracy Reported for a Matching: 0.710830
 
-We can see that while, at it's worst, it's not much better than guessing, at it's best it does extremely well in predicting the correct user for a set of track features. The average case is also a much bigger improvement over randomly guessing. We also wanted to see which user's music preference was the most distinct (i.e. which user, in all of his/her matchings, yielded the highest average accuracy) To evaluate this, we compiled the accuracies for each matching, grouped by user and took the average. Below, the results show that user 1257662670 had the most distinct music taste.
+We can see that at it's best it does extremely well in predicting the correct user for a set of track features. The average case is also a much bigger improvement over randomly guessing. Even the lower accuracy results have valuable conclusions to be made. The closer to 50% an accuracy produced by the classifier for a pair of users is, the closer those users' music tastes are. On the flip side, as we get farther from 50%, it indicates a larger distinction between the music preferences of the two users. 
+
+With these preliminary results, we wanted to see which user's music preference was the most distinct (i.e. which user, in all of his/her matchings, yielded the highest average accuracy) To evaluate this, we compiled the accuracies for each matching, grouped by user and took the average. Below, the results show that user 1257662670 had the most distinct music taste.
 
 	User ID 		Avg. Accuracy
 
@@ -67,5 +69,5 @@ We can see that while, at it's worst, it's not much better than guessing, at it'
 	1257662670 		0.8669809
 
 
-Random forests are powerful for classification, particularly with their resistance to overfitting. While it is still possible to overfit a random forest, the inherent weighting property and increasing the size of the forest make it difficult.
+Random forests are powerful for classification, particularly with their resistance to overfitting. While it is still possible to overfit a random forest, the inherent weighting property and increasing the size of the forest make it difficult. In our experimentation, the RFC consistently performed better than the baseline of random guessing. Going forward, it would be interesting to expand the user-matching technique, forming 3-way comparisons and seeing what results are produced from this. It would also be an interesting experiment to try to pinpoint what makes a user's music taste 'distinct' and launch a more comprehensive investigation in which feature combinations correspond to this attribute.
 
