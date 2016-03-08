@@ -39,14 +39,12 @@ In order to find the best combination of parameters for the RBM and logistic reg
 
 ### Logistic Regression
 
-+ Components
-
 + Regularization
    For the model, C determined the inverse of the regularization strength, with smaller values giving stronger regularization. Regularization is another parameter that helps prevent overfitting. We explored values in the space 1 to 100.
 
 ## Feature Selection
 
-The model was trained over a power set of all features, to determine the combination giving the best results. This training occured using the parameters found above.
+The model was trained over a power set of all features, to determine the combination giving the best results. This training occurred using the parameters found above.
 
 For reference, the data set used had 7 labels, giving a 14.28% chance of random guessing succeeding.
 
@@ -67,7 +65,7 @@ Initially, the model was trained on the full collection of data. There was a hug
 
 When restricting the input data to 100 songs from each user, the model performed slightly better than random guessing. This improvement was seen across the board, with the model now able to identify more individuals, and more songs belonging to each individual.
 
-This performance aligns with existing research that uses neural networks to identify song genre and mood. Futhermore, it implies that the model can be used to identify the features describing a user's listening tastes, soley from their prior habits.
+This performance aligns with existing research that uses neural networks to identify song genre and mood. Furthermore, it implies that the model can be used to identify the features describing a user's listening tastes, solely from their prior habits.
 
 ## References
 
