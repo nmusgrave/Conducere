@@ -1,6 +1,10 @@
 import example
-import cluster
-import allCluster
+import kMeansCluster
+import allkMeansCluster
+import affinityPropagationCluster
+import allAffinityPropagationCluster
+import pipelineCluster
+import allPipelineCluster
 import ann
 import allAnn
 import random_forest
