@@ -91,9 +91,9 @@ L_COMPONENTS = 100
 N_LEARNING_RATE = 0.0046415888336127772
 N_ITER = 21
 N_COMPONENTS = 300
-## features
+with a score of 0.22
 
-danceability energy liveness loudness speechiness acousticness
+## features
 
 Best feature set: ['danceability', 'energy', 'liveness', 'loudness', 'speechiness', 'acousticness']
 Identified 6 out of 7 labels
@@ -306,3 +306,167 @@ Identified 4 out of 7 labels
    1246241522    1   of 25   (0.040000)
    hunter5474    8   of 16   (0.500000)
    connor    3   of 17   (0.176471)
+
+# Trial 3
+
+## input
+
+100 samples from each person: sana, connor, mlhopp, naomimusgrave, jungleprince, 1246241522, hunter5474
+
+## parameters
+
+L_COMPONENTS = 100
+N_LEARNING_RATE = 0.001
+N_ITER = 31
+N_COMPONENTS = 300
+With score of 0.25
+
+## Features
+
+danceability speechiness valence acousticness
+
+Accuracy:   35 correct gives 0.25 compared to guessing 0.142857142857
+Best feature set: ['danceability', 'speechiness', 'valence', 'acousticness']
+Identified 5 out of 7 labels
+    jungleprince   13    of 19    (0.684211)
+    connor   6     of 19    (0.315789)
+    1246241522     3     of 21    (0.142857)
+    hunter5474     8     of 16    (0.500000)
+    sana     5     of 19    (0.263158)
+
+## Results
+
+Avg Accuracy = XXX
+
+
+# Trial 4
+
+## Input
+
+## Parameters
+
+L_COMPONENTS = 100
+N_LEARNING_RATE = 0.001
+N_ITER = 31
+N_COMPONENTS = 300
+With score of 0.25
+
+## Features
+
+danceability energy liveness loudness speechiness tempo valence instrumentalness acousticness
+
+Accuracy:         30 correct gives 0.214285714286 compared to guessing 0.142857142857
+Best feature set:    ['danceability', 'energy', 'liveness', 'loudness', 'speechiness', 'tempo', 'valence', 'instrumentalness', 'acousticness']
+Identified 5 out of 7 labels
+    jungleprince      14    of 21    (0.666667)
+    mlhopp      2  of 22    (0.090909)
+    connor      2  of 26    (0.076923)
+    naomimusgrave        7  of 11    (0.636364)
+    sana        5  of 19    (0.263158)
+
+
+## Results
+
+Avg Accuracy = 29.9
+
+Accuracy:     39 correct gives 0.278571428571 compared to guessing 0.142857142857
+Best feature set:   ['danceability', 'energy', 'liveness', 'loudness', 'speechiness', 'tempo', 'valence', 'instrumentalness', 'acousticness']
+Identified 7 out of 7 labels
+   naomimusgrave     3   of 21   (0.142857)
+   hunter5474      8   of 21   (0.380952)
+   jungleprince      12  of 16   (0.750000)
+   connor      3   of 23   (0.130435)
+   mlhopp      1   of 18   (0.055556)
+   1246241522      6   of 21   (0.285714)
+   sana      6   of 20   (0.300000)
+
+Accuracy:     35 correct gives 0.25 compared to guessing 0.142857142857
+Best feature set:   ['danceability', 'energy', 'liveness', 'loudness', 'speechiness', 'tempo', 'valence', 'instrumentalness', 'acousticness']
+Identified 7 out of 7 labels
+   naomimusgrave     3   of 19   (0.157895)
+   hunter5474      2   of 21   (0.095238)
+   jungleprince      11  of 19   (0.578947)
+   connor      2   of 26   (0.076923)
+   mlhopp      4   of 17   (0.235294)
+   1246241522      9   of 20   (0.450000)
+   sana      4   of 18   (0.222222)
+
+Accuracy:     29 correct gives 0.207142857143 compared to guessing 0.142857142857
+Best feature set:   ['danceability', 'energy', 'liveness', 'loudness', 'speechiness', 'tempo', 'valence', 'instrumentalness', 'acousticness']
+Identified 6 out of 7 labels
+   naomimusgrave     3   of 20   (0.150000)
+   jungleprince      14  of 22   (0.636364)
+   connor      2   of 23   (0.086957)
+   mlhopp      1   of 20   (0.050000)
+   1246241522      7   of 11   (0.636364)
+   sana      2   of 19   (0.105263)
+
+Accuracy:     27 correct gives 0.192857142857 compared to guessing 0.142857142857
+Best feature set:   ['danceability', 'energy', 'liveness', 'loudness', 'speechiness', 'tempo', 'valence', 'instrumentalness', 'acousticness']
+Identified 5 out of 7 labels
+   jungleprince      14  of 18   (0.777778)
+   mlhopp      1   of 17   (0.058824)
+   1246241522      2   of 25   (0.080000)
+   hunter5474      6   of 19   (0.315789)
+   sana      4   of 16   (0.250000)
+
+Accuracy:     24 correct gives 0.171428571429 compared to guessing 0.142857142857
+Best feature set:   ['danceability', 'energy', 'liveness', 'loudness', 'speechiness', 'tempo', 'valence', 'instrumentalness', 'acousticness']
+Identified 6 out of 7 labels
+   naomimusgrave     7   of 11   (0.636364)
+   jungleprince      10  of 26   (0.384615)
+   sana      2   of 19   (0.105263)
+   mlhopp      1   of 21   (0.047619)
+   1246241522      2   of 18   (0.111111)
+   connor      2   of 19   (0.105263)
+
+Accuracy:     39 correct gives 0.278571428571 compared to guessing 0.142857142857
+Best feature set:   ['danceability', 'energy', 'liveness', 'loudness', 'speechiness', 'tempo', 'valence', 'instrumentalness', 'acousticness']
+Identified 6 out of 7 labels
+   naomimusgrave     6   of 18   (0.333333)
+   jungleprince      13  of 26   (0.500000)
+   sana      8   of 16   (0.500000)
+   mlhopp      1   of 18   (0.055556)
+   1246241522      5   of 23   (0.217391)
+   connor      6   of 17   (0.352941)
+
+Accuracy:     30 correct gives 0.214285714286 compared to guessing 0.142857142857
+Best feature set:   ['danceability', 'energy', 'liveness', 'loudness', 'speechiness', 'tempo', 'valence', 'instrumentalness', 'acousticness']
+Identified 6 out of 7 labels
+   hunter5474      6   of 14   (0.428571)
+   jungleprince      9   of 17   (0.529412)
+   connor      4   of 19   (0.210526)
+   mlhopp      3   of 19   (0.157895)
+   1246241522      6   of 20   (0.300000)
+   sana      2   of 24   (0.083333)
+
+Accuracy:     25 correct gives 0.178571428571 compared to guessing 0.142857142857
+Best feature set:   ['danceability', 'energy', 'liveness', 'loudness', 'speechiness', 'tempo', 'valence', 'instrumentalness', 'acousticness']
+Identified 5 out of 7 labels
+   jungleprince      10  of 20   (0.500000)
+   connor      2   of 21   (0.095238)
+   1246241522      5   of 12   (0.416667)
+   hunter5474      6   of 13   (0.461538)
+   sana      2   of 20   (0.100000)
+
+Accuracy:     34 correct gives 0.242857142857 compared to guessing 0.142857142857
+Best feature set:   ['danceability', 'energy', 'liveness', 'loudness', 'speechiness', 'tempo', 'valence', 'instrumentalness', 'acousticness']
+Identified 6 out of 7 labels
+   hunter5474      6   of 16   (0.375000)
+   jungleprince      11  of 22   (0.500000)
+   connor      6   of 22   (0.272727)
+   mlhopp      1   of 19   (0.052632)
+   1246241522      3   of 22   (0.136364)
+   sana      7   of 15   (0.466667)
+
+Accuracy:     26 correct gives 0.185714285714 compared to guessing 0.142857142857
+Best feature set:   ['danceability', 'energy', 'liveness', 'loudness', 'speechiness', 'tempo', 'valence', 'instrumentalness', 'acousticness']
+Identified 5 out of 7 labels
+   jungleprince      6   of 12   (0.500000)
+   connor      6   of 22   (0.272727)
+   1246241522      3   of 23   (0.130435)
+   hunter5474      5   of 20   (0.250000)
+   sana      6   of 14   (0.428571)
+
+
+

@@ -31,18 +31,13 @@ import copy
 # The best parameters are {'logistic__C': 100, 'rbm__n_iter': 21,
 # 'rbm__learning_rate': 0.0046415888336127772, 'rbm__n_components': 300} with a score of 0.22
 
-# The best features so far are: danceability energy instrumentalness acousticness
-
-
-# 34 correct
-
 # Logistic regression features
 L_REGULARIZATION=100
 # Neural network features
 # More components tend to give better prediction performance, but larger
 # fitting time
-N_LEARNING_RATE = 0.0046415888336127772
-N_ITER=21
+N_LEARNING_RATE = 0.001
+N_ITER=31
 N_COMPONENTS=300
 
 
@@ -78,10 +73,9 @@ def execute(args):
 
   # Build features to include in test
   features = args[2:]
-  print features
   if len(features) == 0:
     features = names
-  print 'Selected features:', features
+  # print 'Selected features:', features
 
   # Build all subsets of features, if requested
   if usePowerset.lower() == 'true':
@@ -103,7 +97,6 @@ def execute(args):
     x_train, x_test, y_train, y_test = train_test_split(x_selected, y,
                                                       test_size=0.2,
                                                       random_state=0)
-    print len(x_train), len(x_test), len(y_train), len(y_test)
 
     ###############################################################################
     # Models
@@ -141,13 +134,13 @@ def execute(args):
 
     ###############################################################################
     # Evaluation
-    evaluate(classifier, x_test, y_test)
+    # evaluate(classifier, x_test, y_test)
 
   summary = feature_performance[str(best_combo)]
-  print 'Accuracy:\t', highest_correct, 'correct gives', (highest_correct * 1.0/len(y_test)), 'compared to guessing', (1.0/len(summary['expected']))
-  print 'Best feature set:\t', best_combo
+  print 'Accuracy:\t\t\t', highest_correct, 'correct gives', (highest_correct * 1.0/len(y_test)), 'compared to guessing', (1.0/len(summary['expected']))
+  print 'Best feature set:\t\t', best_combo
   print 'Identified %d out of %d labels'%(len(summary['predictions']),len(summary['expected']))
   for p in summary['predictions']:
     pred = summary['predictions'][p]
     tot = summary['expected'][p]
-    print '\t %s \t %d \t of %d \t (%f)'%(p, pred, tot, pred * 1.0/tot)
+    print '\t %s \t\t %d\t of %d \t (%f)'%(p, pred, tot, pred * 1.0/tot)
