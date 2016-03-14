@@ -1,13 +1,12 @@
 # CSE 481I - Sound Capstone wi16
 # Conducere (TM)
 
-# Random Forest Classification
+# Random Forest Binary Classification
 
 import sys
 import numpy as np
 import util
 import copy
-
 import matplotlib.pyplot as plt
 
 from sklearn.ensemble import RandomForestClassifier
@@ -41,6 +40,37 @@ def parse(filename):
   independent = [[float(sample_point) for sample_point in sample] for sample in independent]
   return names, dependent, np.asarray(independent)
 
+
+def get_binary_user_combinations(users):
+  """
+  For the given list of users, finds every unique binary combination
+  of those users and returns a list of tuples corresponding to these
+  unique combinations.
+  """
+  results = []
+  sorted_uniq = sorted(set(users))
+  for i in range(len(sorted_uniq)):
+    for j in range(i, len(sorted_uniq)):
+      if i is not j:
+        results.append((sorted_uniq[i], sorted_uniq[j]))
+  return results
+
+
+def prune_data(x, y, users):
+  """
+  Given a collection of users, prunes independent (x) data and dependent (y) 
+  data to only contain data pertaining to the users present in the collection.
+
+  In our case, a user corresponds to a y-value (label). 
+  """
+  res_x, res_y = [], []
+  for i in range(len(x)):
+    if y[i] in users:
+      res_x.append(x[i])
+      res_y.append(y[i])
+  return res_x, res_y
+
+
 def average_score_k_trials(model, x, y, k):
   """
   Takes the average accuracy score over k trials with the given
@@ -51,55 +81,38 @@ def average_score_k_trials(model, x, y, k):
     avg += model.score(x, y)
   return avg / float(k)
 
+
 ###############################################################################
 # Evaluation
 #
-def evaluate(model, x_test, y_test):
-  """
-  Prints a summary of results for multiclass classification using a RFC.
-  Also prints feature importances for the RFC.
-  """
-  avg_over_10 = average_score_k_trials(model, x_test, y_test, 10)
+def evaluate(scores, num_classes):
+  """ 
+  Evaluates the average accuracies for each user from the provided dictionary
+  of scores and prints the results.
+
+    scores is of the form {user_1 : {user_2 : score}}
   
+  """
+  print 
   print "================================================================================"
-  print "Summary of Results:"
+  print "Calculating average accuracies for each user based on combination"
+  print "accuracy results."
   print
-  print "Forest Size = %d trees" % FOREST_SIZE
-  print "Random Guess Mean Accuracy: %f" % (1.0 / model.n_classes_)
-  print "Avg Accuracy (10 trials): ", avg_over_10
+  print "Random Guess Mean Accuracy: %f" % (1.0 / num_classes)
   print
-  print "================================================================================"
-  print("Results using Random Forest Classification:\n\n%s\n" % (
-    metrics.classification_report(
-        y_test,
-        model.predict(x_test))))
- 
+
+  count = 0
+  print "%20s\t\t%s" % ("User", "Avg. Accuracy")
   print
-  print "================================================================================"
-  print "Feature importance for Random Forest Classifier:\n"
-  for i in range(len(model.feature_importances_)):
-    print "%20s:\t\t%f" % (ATTRIBUTES[i], model.feature_importances_[i])
+  for u in scores:
+    u_avg = sum(scores[u].values()) / len(scores[u].values())
+    print "%20s:\t\t%f" % (u, u_avg)
+    count += 1
+
   print
   print "================================================================================"
   print "Done with evaluation"
 
-
-def evaluate_forest_size(x_train, y_train, x_test, y_test):
-  """
-  Collects analysis data on forest size vs. average accuracy.
-  """
-  for i in range(1, FOREST_SIZE+2, 20):
-    # Set up Random Forest Classifier
-    model = RandomForestClassifier(
-              n_estimators=i, 
-              criterion=CRITERION, 
-              max_features=MAX_FEATURES,
-              verbose=VERBOSE,
-        )
-
-    model.fit(x_train, y_train)
-    avg_score = average_score_k_trials(model, x_test, y_test, 10)
-    print str(i) + "," + str(avg_score) 
 
 
 ###############################################################################
@@ -108,7 +121,7 @@ def evaluate_forest_size(x_train, y_train, x_test, y_test):
 
 # Gives the usage of this program
 def usage():
-  print "Usage: python run.py random_forest [num iterations] [data_file]"
+  print "Usage: python run.py random_forest_binary [num iterations] [data_file]"
 
 # Executes a model for clustering data. Treats the first feature as the dependent
 # feature.
@@ -124,29 +137,52 @@ def execute(args):
   names, y, x = parse(args[0])
   x = util.clean(names, x)
 
-  # Runs a multi-class classification using Random Forest.
-  # The number of possible class predictions = number of users.
+  # Runs RFC every combination of pairs of users for a binary classification.
+  # The number of possible class predictions = 2.
 
-  print "Running full multi-class classification:"
-  print "Number of users: %d" % (len(set(y)))
+  num_users = len(set(y))
+  num_combos = np.math.factorial(num_users) / (2 * np.math.factorial(num_users - 2))
+
+  print "Testing 2-way combinations of users for binary classification:"
+  print "Number of users: %d" % (num_users)
+  print "Number of combinations: %d" % (num_combos)
   print
+  print "================================================================================"
+  print "Evaluating Combinations of Users:"
+  print 
 
-  x_train, x_test, y_train, y_test = train_test_split(x, y,
+  combos = get_binary_user_combinations(y)
+  COMBO_SCORES = {}
+  for c in combos:
+    x_pruned, y_pruned = prune_data(x, y, c)
+
+    x_train, x_test, y_train, y_test = train_test_split(x_pruned, y_pruned,
                                                   test_size=TRAIN_PARTITION,
                                                   random_state=0)
 
-  # Set up Random Forest Classifier
-  model = RandomForestClassifier(
+
+    # Set up Random Forest Classifier
+    model = RandomForestClassifier(
             n_estimators=FOREST_SIZE, 
             criterion=CRITERION, 
             max_features=MAX_FEATURES,
             verbose=VERBOSE,
       )
 
-  model.fit(x_train, y_train)
+    model.fit(x_train, y_train)
 
-  # Evaluation
-  evaluate(model, x_test, y_test)
+    # Updating combination scores
+    if c[0] not in COMBO_SCORES:
+      COMBO_SCORES[c[0]] = {}
+    if c[1] not in COMBO_SCORES:
+      COMBO_SCORES[c[1]] = {}
 
+    score = average_score_k_trials(model, x_test, y_test, 5)
+    COMBO_SCORES[c[0]][c[1]] = score
+    COMBO_SCORES[c[1]][c[0]] = score
 
+    print "\tEvaluating users: %35s       %f" % (c, score)
   
+  # Evaluate final results
+  evaluate(COMBO_SCORES, 2)
+
