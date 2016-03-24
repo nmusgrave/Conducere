@@ -23,21 +23,21 @@ and tried a number of values for C. The approximate best results were as
 follows, where the first line is what features were clustered on and the second
 is mean and standard deviation:
 
-C = 1: 
-  ['danceability', 'liveness', 'loudness', 'tempo', 'valence', 'acousticness']
-  mean: 0.151    standard deviation: 0.142
+    C = 1: 
+      ['danceability', 'liveness', 'loudness', 'tempo', 'valence', 'acousticness']
+      mean: 0.151    standard deviation: 0.142
 
-C = 2:
-  ['danceability', 'loudness', 'tempo', 'valence', 'acousticness']
-  mean: 0.175   standard deviation: 0.115
+    C = 2:
+      ['danceability', 'loudness', 'tempo', 'valence', 'acousticness']
+      mean: 0.175   standard deviation: 0.115
 
-C = 3:
-  ['danceability', 'tempo', 'valence', 'acousticness']
-  mean: 0.200   standard deviation: 0.096
+    C = 3:
+      ['danceability', 'tempo', 'valence', 'acousticness']
+      mean: 0.200   standard deviation: 0.096
 
-C = 4:
-  ['energy', 'liveness', 'valence']
-  mean: 0.221   standard deviation: 0.133
+    C = 4:
+      ['energy', 'liveness', 'valence']
+      mean: 0.221   standard deviation: 0.133
 
 Any more values of C likely risks overfitting
 
@@ -55,25 +55,25 @@ the means. Here are four runs from different damping constants. The first line
 is data clustered on, the second is the number of clusters (a strong indication
 of overfitting), and the third is mean and standard deviation:
 
-damping = 0.5:
-  ['danceability']
-  number of clusters: 1002
-  mean: 0.911   standard deviation: 0.050
+    damping = 0.5:
+      ['danceability']
+      number of clusters: 1002
+      mean: 0.911   standard deviation: 0.050
 
-damping = 0.55:
-  ['danceability']
-  number of clusters: 984
-  mean: 0.898   standard deviation: 0.048
+    damping = 0.55:
+      ['danceability']
+      number of clusters: 984
+      mean: 0.898   standard deviation: 0.048
 
-damping = 0.6:
-  ['valence']
-  number of clusters: 857
-  mean: 0.371   standard deviation: 0.112
+    damping = 0.6:
+      ['valence']
+      number of clusters: 857
+      mean: 0.371   standard deviation: 0.112
 
-damping = 0.65:
-  ['valence']
-  number of clusters: 701
-  mean: 0.332   standard deviation: 0.125
+    damping = 0.65:
+      ['valence']
+      number of clusters: 701
+      mean: 0.332   standard deviation: 0.125
 
 
 Perhaps the most interesting result came from combining these two models. If
@@ -83,8 +83,8 @@ from letting affinity propagation overfit with a damping of 0.52, and combining
 the two models by making the accuracy for each label 0.7 * kMeansPrediction +
 0.3 * affinityPropagationPrediction:
 
-  ['acousticness']
-  mean: 0.400   standard deviation: 0.140
+    ['acousticness']
+    mean: 0.400   standard deviation: 0.140
 
 Clustering is a plain and simple classification aglorithm. For our project,
 this means that uncertainty in the model can be as interesting as certainty. If
