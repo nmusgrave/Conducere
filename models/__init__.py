@@ -7,4 +7,5 @@ import pipelineCluster
 import allPipelineCluster
 import ann
 import allAnn
-import random_forest
+import randomForest
+import randomForestBinary
