@@ -93,16 +93,15 @@ N_ITER = 21
 N_COMPONENTS = 300
 with a score of 0.22
 
+100
+0.0046415888336127772
+21
+300
+0.22
+
 ## features
 
 Best feature set: ['danceability', 'energy', 'liveness', 'loudness', 'speechiness', 'acousticness']
-Identified 6 out of 7 labels
-    naomimusgrave     8     of 17    (0.470588)
-    hunter5474     2     of 21    (0.095238)
-    jungleprince   13    of 22    (0.590909)
-    sana     10    of 18    (0.555556)
-    mlhopp   3     of 18    (0.166667)
-    connor   4     of 22    (0.181818)
 
 ## Results
 
@@ -325,15 +324,6 @@ With score of 0.25
 
 danceability speechiness valence acousticness
 
-Accuracy:   35 correct gives 0.25 compared to guessing 0.142857142857
-Best feature set: ['danceability', 'speechiness', 'valence', 'acousticness']
-Identified 5 out of 7 labels
-    jungleprince   13    of 19    (0.684211)
-    connor   6     of 19    (0.315789)
-    1246241522     3     of 21    (0.142857)
-    hunter5474     8     of 16    (0.500000)
-    sana     5     of 19    (0.263158)
-
 ## Results
 
 Avg Accuracy = XXX
@@ -357,13 +347,6 @@ danceability energy liveness loudness speechiness tempo valence instrumentalness
 
 Accuracy:         30 correct gives 0.214285714286 compared to guessing 0.142857142857
 Best feature set:    ['danceability', 'energy', 'liveness', 'loudness', 'speechiness', 'tempo', 'valence', 'instrumentalness', 'acousticness']
-Identified 5 out of 7 labels
-    jungleprince      14    of 21    (0.666667)
-    mlhopp      2  of 22    (0.090909)
-    connor      2  of 26    (0.076923)
-    naomimusgrave        7  of 11    (0.636364)
-    sana        5  of 19    (0.263158)
-
 
 ## Results
 

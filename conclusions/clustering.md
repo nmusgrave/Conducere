@@ -1,3 +1,5 @@
+# Clustering
+
 Clustering is an unsupervised classification model that attempts to separate
 n-dimensional data into a number of clusters. We explored two different kinds
 of clustering, k-means and affinity propagation. In both models, the metric is
