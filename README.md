@@ -1,6 +1,16 @@
 # Conducere: An Application of Music Learning
 By [Connor Moore](https://www.linkedin.com/in/connor-moore-190a30a3), [Naomi Musgrave](), [Megan Hopp](https://www.linkedin.com/in/hoppm), and [Svetlana Grabar](https://www.linkedin.com/in/svetlana-grabar-71aa6a83). Created for Prof. Bruce Hemingway's Winter 2016 Sound Capstone course at the University of Washington, Computer Science Department.
 
+## Contents
++ [Summary](#summary)
++ Design
++ Results
++ How To Use
++ Data Sources
++ Related Research
+
+## <a link="summary"></a> Summary
+
 Conducere is a project that delves into the analysis of musical features. Many projects attempt to reccommend songs to users based on the listening habits of their friends. Other projects attempt to categorize individual tracks by determining the song's mood or musical genre. While musical analysis of attributes, such as chord progression, timbre, pitch, and tempo, has been substantially researched, this realm is a relatively untouched field when it comes to predicting music preference of individuals based on these attributes. 
 
 This field of research spawns a question: Can we determine individual music preferences from these musical attributes in prior listening trends, excluding the social aspect? Conducere is an effort to investigate this question through analyzing music and applying various machine learning techniques to build different models of a user's listening habits. Along the way, we hope to determine what learning models yield the best results.
@@ -28,7 +38,7 @@ We defined a data processing module to interacts with the Echo Nest API and the 
 
 #### Random Forest Classifier
 
-A random forest classifier is assembled from a collection of decision trees. A single tree has low bias (error due to incorrect assumptions) but high variance (very sensitive to noise in the sample set). By using a forest of decision trees, rather than a single tree, the model is less sensitive to noise in the sample set. Each decision tree is constructed using a subset of the training data set. Samples from the training set are chosen using bootstrap aggregation, or bagging. With this technique, bags of samples are chosen uniformly and with replacement. This helps reduce the effects of high variance and overfitting that decision trees are susceptible to. 
+A [random forest classifier](http://scikit-learn.org/stable/modules/generated/sklearn.ensemble.RandomForestClassifier.html) is assembled from a collection of decision trees. A single tree has low bias (error due to incorrect assumptions) but high variance (very sensitive to noise in the sample set). By using a forest of decision trees, rather than a single tree, the model is less sensitive to noise in the sample set. Each decision tree is constructed using a subset of the training data set. Samples from the training set are chosen using bootstrap aggregation, or bagging. With this technique, bags of samples are chosen uniformly and with replacement. This helps reduce the effects of high variance and overfitting that decision trees are susceptible to. 
 
 The decision trees learn rules to classify the data set. Each interior node describes a threshold on a feature of the data set. Each leaf node is a possible label the item may be assigned. When constructing the tree, the number of nodes is increased as the data set is recursively partitioned by repeated tests of feature values. The splitting halts when a subset has all the same value, or splitting yields no knew labels. When a data point is given to a decision tree, it flows from the root to a leaf node, following branches based upon the values of its attributes. The random forest classifies a data point by collecting a vote by the trees in the forest, weighted by their probability estimates.
 
@@ -125,4 +135,6 @@ which prints comma-separated data to standard out (redirect to filepath, if desi
 [Automatic music emotion classification using artificial neural network based on vocal and instrumental sound timbres](https://www.researchgate.net/publication/276432106_Automatic_music_emotion_classification_using_artificial_neural_network_based_on_vocal_and_instrumental_sound_timbres): By analyzing the timbre of vocal and instrumental components, can identify emotions in music. Two main modes of emotion identification are pattern matching (use memory to find strongest set of parameters that match) or signal modeling (translate audio into features). The research uses a binary feedback neural network. Data sets are songs with timbre features (spectral rolloff, zero-cross, spectral centroid) extracted.
 
 [Classification of Musical Genre: A ML Approach](http://art.uniroma2.it/research/musicIR/BasSeraStel_ISMIR04.pdf): This work examines various musical features and categorization approaches. Multiple binary classifiers are more accurate than a single multi-class classifier. Simple musical features can provide very reasonable classification results.
+
+
 
