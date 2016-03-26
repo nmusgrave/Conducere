@@ -26,8 +26,17 @@ We defined a data processing module to interacts with the Echo Nest API and the 
 
 ### Machine Learning Models
 
-#### Random Forest
+#### Random Forest Classifier
 
+A random forest classifier is assembled from a collection of decision trees. A single tree has low bias (error due to incorrect assumptions) but high variance (very sensitive to noise in the sample set). By using a forest of decision trees, rather than a single tree, the model is less sensitive to noise in the sample set. Each decision tree is constructed using a subset of the training data set. Samples from the training set are chosen using bootstrap aggregation, or bagging. With this technique, bags of samples are chosen uniformly and with replacement. This helps reduce the effects of high variance and overfitting that decision trees are susceptible to. 
+
+The decision trees learn rules to classify the data set. Each interior node describes a threshold on a feature of the data set. Each leaf node is a possible label the item may be assigned. When constructing the tree, the number of nodes is increased as the data set is recursively partitioned by repeated tests of feature values. The splitting halts when a subset has all the same value, or splitting yields no knew labels. When a data point is given to a decision tree, it flows from the root to a leaf node, following branches based upon the values of its attributes. The random forest classifies a data point by collecting a vote by the trees in the forest, weighted by their probability estimates.
+
+When using the random forest for multiclass classification, we varied the forest size from 1 to 1000 trees. When using the full set of features, the accuracy ranged from 15.8% to 25.7%. When using selecting the best-performing features, the accuracies fell in the 30-35% range. 
+
+We also attempted treating the random forest as a binary classifier. Splitting the data by user, we constructed every possible user pairing and ran the model. By random guessing, the model would have 50% accuracy. The best accuracy was 93.7%, with some others falling closer to 50%. The average was 71.1% accuracy. User pairs with classification accuracies closer to 50% reflect that those two users have very similar music tastes. By grouping the pairings by user, and averaging the model's accuracies for all the pairings for that user, we calculated the distinctiveness of each user's listening habits. These measures ranged from 0.65 to 0.867.
+
+Overall, the random forest classifier performed much better than random guessing. By using the binary classifier, we found which users had the most similar tastes. From the perspective of music reccomendation, it is useful to understand what users have similar tastes, in order to reccomend appropriate songs to that group, rather than on a user-by-user basis.
 
 #### Clustering
 
@@ -116,6 +125,4 @@ which prints comma-separated data to standard out (redirect to filepath, if desi
 [Automatic music emotion classification using artificial neural network based on vocal and instrumental sound timbres](https://www.researchgate.net/publication/276432106_Automatic_music_emotion_classification_using_artificial_neural_network_based_on_vocal_and_instrumental_sound_timbres): By analyzing the timbre of vocal and instrumental components, can identify emotions in music. Two main modes of emotion identification are pattern matching (use memory to find strongest set of parameters that match) or signal modeling (translate audio into features). The research uses a binary feedback neural network. Data sets are songs with timbre features (spectral rolloff, zero-cross, spectral centroid) extracted.
 
 [Classification of Musical Genre: A ML Approach](http://art.uniroma2.it/research/musicIR/BasSeraStel_ISMIR04.pdf): This work examines various musical features and categorization approaches. Multiple binary classifiers are more accurate than a single multi-class classifier. Simple musical features can provide very reasonable classification results.
-
-
 
