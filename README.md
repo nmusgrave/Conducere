@@ -3,13 +3,21 @@ By [Connor Moore](https://www.linkedin.com/in/connor-moore-190a30a3), [Naomi Mus
 
 ## Contents
 + [Summary](#summary)
-+ Design
-+ Results
-+ How To Use
-+ Data Sources
-+ Related Research
++ [Design](#design)
+  + [Overview](#overview)
+  + [Machine Learning Models](#machine-learning-models)
+    + [Random Forest Classifier](#random-forest-classifier)
+    + [Clustering](#clustering)
+    + [Artificial Neural Network with Logistic Regression](#artificial-neural-network-with-logistic-regression)
++ [Results](#results)
++ [How To Use](#how-to-use)
+  + [Example](#example)
+  + [Learning Module](#learning-module)
+  + [Data Collection](#data-collection)
++ [Data Sources](#data-sources)
++ [Related Research](#related-research)
 
-## <a link="summary"></a> Summary
+## Summary
 
 Conducere is a project that delves into the analysis of musical features. Many projects attempt to reccommend songs to users based on the listening habits of their friends. Other projects attempt to categorize individual tracks by determining the song's mood or musical genre. While musical analysis of attributes, such as chord progression, timbre, pitch, and tempo, has been substantially researched, this realm is a relatively untouched field when it comes to predicting music preference of individuals based on these attributes. 
 
